@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" type="text/css" />
+    <!-- link to bootstrap class -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+    <!-- Link to fontawesom -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" type="text/css" />
+
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+
+    <title>Holiday Selecter</title>
+
+</head>
+
+<body>
+    <header class="container-fluid">
+        <!--*******Navigation*******-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark-taylor fixed-top">
+            <a class="menuitem" href="#search">SEARCH</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+             </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#packages">Packages</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Attractions</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#music">Local Attractions</a>
+                            <a class="dropdown-item" href="#new-photos">Cost Comparison</a>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+      </header>
+    <!--*******SEARCH*******-->
+<section id="search">
+    <div class="container-fluid search-container">
+        <div class="row">
+            <div class="col-12">
+                <section class="search-container text-center">
+                    <h2 class="search-header">Search</h2>
+                      <div class="critera-container center-form">
+                        <form class="needs-validation" novalidate>
+                            <ul class="critera">
+                                <li>
+                                
+                                    <div class="form-group col-md-6 mb-3">
+                                        <select class="custom-select" required>
+                                             <option value="">Origin</option>
+                                            <option value="France">Dublin</option>
+                                            <option value="Germany">Belfast</option>
+                                           <option value="Italy">Cork</option>
+                                        </select>
+                                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="form-group col-md-6 mb-3">
+                                        <select class="custom-select" required>
+                                                          <option value="">Destination</option>
+                                                          <option value="France">One</option>
+                                                          <option value="Germany">Two</option>
+                                                          <option value="Italy">Three</option>
+                                                        </select>
+                                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="date" class="form-control" id="dateValidation" placeholder="Enter Date" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="form-group col-md-6 mb-3">
+                                        <select class="custom-select" required>
+                                                          <option value="">Duration</option>
+                                                          <option value="France">3 Days</option>
+                                                          <option value="Germany">7 Days</option>
+                                                          <option value="Italy">14 Days</option>
+                                                        </select>
+                                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-group col-md-6 mb-3">
+                                        <select class="custom-select" required>
+                                                          <option value="">Type</option>
+                                                          <option value="1">Family Getaway</option>
+                                                          <option value="2">Romantic Retreat</option>
+                                                          <option value="3">Friends Escape</option>
+                                                          
+                                                        </select>
+                                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                                    </div>
+
+                                </li>
+
+                                <li>
+                                    <div>
+                                        <button type="submit" class="btn btn--cta btn--color">Find Perfect Holiday!</button>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </form>
+
+                        <script>
+                            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function() {
+                                'use strict';
+                                window.addEventListener('load', function() {
+                                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                    var forms = document.getElementsByClassName('needs-validation');
+                                    // Loop over them and prevent submission
+                                    var validation = Array.prototype.filter.call(forms, function(form) {
+                                        form.addEventListener('submit', function(event) {
+                                            if (form.checkValidity() === false) {
+                                                event.preventDefault();
+                                                event.stopPropagation();
+                                            }
+                                            form.classList.add('was-validated');
+                                        }, false);
+                                    });
+                                }, false);
+                            })();
+                        </script>
+                        </div>
+
+                </section>
+                </div>
+            </div>
+        </div>
+
+</section>
+        <!--*******PACKAGES*******-->
+    <section id="packages">
+        
+        
+    </section> 
+        <!--*******LOCATIONS*******-->
+    <section id="locations">
+        
+        
+    </section> 
+        <!--*******COST*******-->
+    <section id="cost">
+        
+        
+    </section> 
+    
+    
+    
+
+
+   
+
+    <!--*******FOOTER*******-->
+    <footer class="container-fluid">
+        <div id="footerdetails" class="row">
+            <div class="col-sm-8">
+                <h5 class="uppercase general-sub">The Monkees</h5>
+                <p class="inline-block">
+                    Giving you brilliant music for 60 years
+                </p>
+            </div>
+
+
+            <div class="col-sm-4">
+                <h5 class="uppercase general-sub">Social</h5>
+                <ul class="list-inline social-links">
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://www.facebook.com">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <span class="sr-only">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://twitter.com/?lang=en">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <span class="sr-only">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://ie.linkedin.com/">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            <span class="sr-only">LinkedIn</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://www.instagram.com/">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                            <span class="sr-only">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a target="_blank" href="https://www.youtube.com/results?search_query=the+monkees">
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                            <span class="sr-only">YouTube</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>    
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

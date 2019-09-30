@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+/*-----------------Backgrounds*/
+.search-container {
+    height: 100vh;
+    background: url("../images/landing.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+/*-----------------header*/
+
+
+.menuitem {
+    color: #f05f40;
+    font-family: fantasy;
+}
+
+.bg-dark-taylor {
+    background-color: rgba(0, 0, 0, 0.33);
+}
+    
+.stay-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1047;
+}    
+/*-----------------search*/
+
+.critera-container {
+    background-color: #84222200;
+}
+
+.search-header {
+    color: #cac1f1;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    font-family: fantasy;
+}
+
+
+.btn--cta {
+    font-weight: bold;
+    border-radius: 23px;
+    width: 160;
+    }
+    
+.btn--color {
+    color: white;
+    background-color: #f05f40;
+    border-color: #f05f40;
+    margin: 2px;
+    }
+
+.critera {
+    list-style-type: none;
+    text-align: center;
+}
+
+.critera li {
+    width: 200px;
+    height: 100px;
+    padding-left: 2px;
+    padding-right: 2px;
+    
+}
+
+/*-----------------footer*/
+
+#footerdetails {
+    padding: 20px;
+    background-color: #cacfd5;
+}
+
+.music-dowload i {
+    font-size: 18px;
+    color: #8f8f8f;
+    text-align: center;
+    padding-left: 5px;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+.music-dowload i:hover {
+    color: #e84610;
+}
+
+.social-links {
+    padding-bottom: 15px;
+}
+
+.social-links li a i {
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    border-radius: 50%;
+    font-size: 13px;
+    line-height: 7px;
+    text-align: center;
+    color: #fafafa;
+    background-color: #8f8f8f;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+.social-links li a i:hover {
+    background-color: #e84610;
+}
