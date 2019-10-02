@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
+
+
     <title>Holiday Selecter</title>
 
 </head>
@@ -26,7 +28,7 @@
 <body>
     <header class="container-fluid">
         <!--*******Navigation*******-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark-taylor fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark-taylor stay-top">
             <a class="menuitem" href="#search">SEARCH</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,8 +43,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Attractions</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#music">Local Attractions</a>
-                            <a class="dropdown-item" href="#new-photos">Cost Comparison</a>
+                            <a class="dropdown-item" href="#locations">Local Attractions</a>
+                            <a class="dropdown-item" href="#cost">Cost Comparison</a>
                         </div>
                     </li>
 
@@ -52,142 +54,119 @@
         </nav>
 
     </header>
-      </header>
+    </header>
     <!--*******SEARCH*******-->
-<section id="search">
-    <div class="container-fluid search-container">
-        <div class="row">
-            <div class="col-12">
-                <section class="search-container text-center">
-                    <h2 class="search-header">Search</h2>
-                      <div class="critera-container center-form">
-                        <form class="needs-validation" novalidate>
-                            <ul class="critera">
-                                <li>
-                                
-                                    <div class="form-group col-md-6 mb-3">
-                                        <select class="custom-select" required>
-                                             <option value="">Origin</option>
-                                            <option value="France">Dublin</option>
-                                            <option value="Germany">Belfast</option>
-                                           <option value="Italy">Cork</option>
-                                        </select>
-                                        <div class="invalid-feedback">Example invalid custom select feedback</div>
-                                    </div>
-                                </li>
+    <section id="search">
+        <div class="container-fluid search-container">
+            <div class="row criteria-shape">
+                <form>
+                    <div class="criteria-item form-group">
+                        <select id="origin" onchange="fetchorigin();">
+                            <option value="origin">Origin</option>
+                            <option value="dublin">Dublin</option>
+                            <option value="belfast">Belfast</option>
+                            <option value="cork">Cork</option>
+                        </select>
+                    </div>
 
-                                <li>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <select class="custom-select" required>
-                                                          <option value="">Destination</option>
-                                                          <option value="France">One</option>
-                                                          <option value="Germany">Two</option>
-                                                          <option value="Italy">Three</option>
-                                                        </select>
-                                        <div class="invalid-feedback">Example invalid custom select feedback</div>
-                                    </div>
-                                </li>
+                    <div class="criteria-item form-group">
+                        <select id="dest" onchange="fetchdest();">
+                            <option value="dest">Destination</option>
+                            <option value="paris">Paris</option>
+                            <option value="berlin">Berlin</option>
+                            <option value="rome">Rome</option>
+                        </select>
+                    </div>
 
-                                <li>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="date" class="form-control" id="dateValidation" placeholder="Enter Date" required>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                </li>
+                    <div class="criteria-item form-group">
+                        <select id="type" onchange="fetchtype();">
+                            <option value="type">Type</option>
+                            <option value="famGet">Family Getaway</option>
+                            <option value="romRett">Romantic Retreat</option>
+                            <option value="friEsc">Friends Escape</option>
+                        </select>
+                    </div>
 
-                                <li>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <select class="custom-select" required>
-                                                          <option value="">Duration</option>
-                                                          <option value="France">3 Days</option>
-                                                          <option value="Germany">7 Days</option>
-                                                          <option value="Italy">14 Days</option>
-                                                        </select>
-                                        <div class="invalid-feedback">Example invalid custom select feedback</div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <select class="custom-select" required>
-                                                          <option value="">Type</option>
-                                                          <option value="1">Family Getaway</option>
-                                                          <option value="2">Romantic Retreat</option>
-                                                          <option value="3">Friends Escape</option>
-                                                          
-                                                        </select>
-                                        <div class="invalid-feedback">Example invalid custom select feedback</div>
-                                    </div>
+                    <div class="criteria-item form-group">
+                        <select required>
+                            <option value="">Duration</option>
+                            <option value="France">3 Dyas</option>
+                            <option value="Germany">7 Days</option>
+                            <option value="Italy">14 Days</option>
+                        </select>
+                    </div>
 
-                                </li>
+                    <div class="criteria-item form-group">
+                        <input type="date" class="form-control" id="dateValidation" placeholder="Enter Date" required>
+                    </div>
 
-                                <li>
-                                    <div>
-                                        <button type="submit" class="btn btn--cta btn--color">Find Perfect Holiday!</button>
-                                    </div>
-                                </li>
+                    <div>
+                        <button type="submit" class="btn--cta btn--color">Find Perfect Holiday!</button>
+                    </div>
 
-                            </ul>
-                        </form>
-
-                        <script>
-                            // Example starter JavaScript for disabling form submissions if there are invalid fields
-                            (function() {
-                                'use strict';
-                                window.addEventListener('load', function() {
-                                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                                    var forms = document.getElementsByClassName('needs-validation');
-                                    // Loop over them and prevent submission
-                                    var validation = Array.prototype.filter.call(forms, function(form) {
-                                        form.addEventListener('submit', function(event) {
-                                            if (form.checkValidity() === false) {
-                                                event.preventDefault();
-                                                event.stopPropagation();
-                                            }
-                                            form.classList.add('was-validated');
-                                        }, false);
-                                    });
-                                }, false);
-                            })();
-                        </script>
-                        </div>
-
-                </section>
-                </div>
+                </form>
             </div>
-        </div>
 
-</section>
-        <!--*******PACKAGES*******-->
+        </div>
+    </section>
+    <!--*******PACKAGES*******-->
     <section id="packages">
-        
-        
-    </section> 
-        <!--*******LOCATIONS*******-->
+
+
+            <div id="romantic-packages" class="col-xs-12 col-sm-12 col-md-12"></div>
+            <div id="family-packages" class="col-xs-12 col-sm-12 col-md-12"></div>
+
+    </section>
+    <!--*******LOCATIONS*******-->
     <section id="locations">
         
-        
-    </section> 
-        <!--*******COST*******-->
-    <section id="cost">
-        
-        
-    </section> 
-    
-    
-    
+            <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="section-heading uppercase">Attraction Locater</h3>
+                    </div>
+            </div>
+        <div class="row col-md-12">    
+            <div id="map" class="col-xs-12 col-sm-12 col-md-8 bg-color-map section-column"></div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-4 bg-color-attraction attraction-shape">
+                <form>
+                     <div class="form-group">
+                        <select id="dest" onchange="fetchcity();">
+                            <option value="city">Select City</option>
+                            <option value="paris">Paris</option>
+                            <option value="berlin">Berlin</option>
+                            <option value="rome">Rome</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select id="attraction" onchange="fetchAtt();">
+                            <option value="selAct">Select Actraction</option>
+                            <option value="cafe">Cafe</option>
+                            <option value="restauraunt">Resteraunt</option>
+                            <option value="drink">Bars/Pubs</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>    
+
+    </section>
 
 
-   
+
+
+
+
+
 
     <!--*******FOOTER*******-->
     <footer class="container-fluid">
         <div id="footerdetails" class="row">
             <div class="col-sm-8">
-                <h5 class="uppercase general-sub">The Monkees</h5>
+                <h5 class="uppercase general-sub">The Holiday Selecter</h5>
                 <p class="inline-block">
-                    Giving you brilliant music for 60 years
+                    Find the Perfect Holiday to meeting your wish
                 </p>
             </div>
 
@@ -229,12 +208,23 @@
             </div>
         </div>
 
-    </footer>    
+    </footer>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3e2rcmbHaheAH_Qgn22I8rnXoySvx2jE&callback=initMap"  type="text/javascript"></script>
+    
+   
+    <script type="text/javascript" src="assets/js/maps.js"></script>
+    <script type="text/javascript" src="assets/js/packages.js"></script>
+
 </body>
 
 </html>
+
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3e2rcmbHaheAH_Qgn22I8rnXoySvx2jE&libraries=places">*/*-->

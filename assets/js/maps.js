@@ -1,13 +1,41 @@
+var map;
 function initMap() {
-    var map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 10,
-        center: {
-            lat: 40.785091,
-            lng: -73.698285
-        }
+    var center = new google.maps.LatLng(37.422, -122.084058);
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: center,
+        zoom: 10
+      
     });
     
-    var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var request = {
+        locations: center,
+        radius: 3000,
+        types: ['cafe']
+    };
+    
+    var service = new  google.maps.places.PlacesService(map);
+    service.nearbySearch(request, callback);
+}
+
+function callback(result, status){
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++){
+            createMarker(results[i]);
+        }
+    }
+}
+
+function createMarker(place) {
+    var placeLoc = place.geomerty.location;
+    var marker =new google.map.Marker({
+        map:map,
+        position: place.geomerty.location
+    });
+    
+google.map.event.addDomListener(window, 'load', initMap)
+}
+    
+ /*   var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     var locations = [
         { lat: 40.785091, lng: -73.698285 },
@@ -20,8 +48,9 @@ function initMap() {
             position: location,
             label: labels[i % labels.length]
         });
-    });
+    });*/
     
-    /*image for the cluster*/
-    var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
-}
+    /*image for the cluster
+         var markerCluster = new MarkerClusterer(map, markers, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+         }*/
+   
