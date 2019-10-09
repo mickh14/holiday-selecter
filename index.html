@@ -60,29 +60,17 @@
         <div class="container-fluid search-container">
             <div class="row criteria-shape">
                 <form>
+
+
                     <div class="criteria-item form-group">
-                        <select id="origin" onchange="fetchorigin();">
-                            <option value="origin">Origin</option>
-                            <option value="dublin">Dublin</option>
-                            <option value="belfast">Belfast</option>
-                            <option value="cork">Cork</option>
-                        </select>
+                        <input type="text" name="term" id="search_term" class="controls" placeholder="Where to....." />
                     </div>
 
                     <div class="criteria-item form-group">
-                        <select id="dest" onchange="fetchdest();">
-                            <option value="dest">Destination</option>
-                            <option value="paris">Paris</option>
-                            <option value="berlin">Berlin</option>
-                            <option value="rome">Rome</option>
-                        </select>
-                    </div>
-
-                    <div class="criteria-item form-group">
-                        <select id="type" onchange="fetchtype();">
-                            <option value="type">Type</option>
+                        <select id="holType" onchange="fetchtype();">
+                            <option value="holType">Holiday Type</option>
                             <option value="famGet">Family Getaway</option>
-                            <option value="romRett">Romantic Retreat</option>
+                            <option value="romRet">Romantic Retreat</option>
                             <option value="friEsc">Friends Escape</option>
                         </select>
                     </div>
@@ -113,49 +101,40 @@
     <section id="packages">
 
 
-            <div id="romantic-packages" class="col-xs-12 col-sm-12 col-md-12"></div>
-            <div id="family-packages" class="col-xs-12 col-sm-12 col-md-12"></div>
+        <div id="romantic-packages" class="col-xs-12 col-sm-12 col-md-12"></div>
+        <div id="family-packages" class="col-xs-12 col-sm-12 col-md-12"></div>
 
     </section>
     <!--*******LOCATIONS*******-->
     <section id="locations">
-        
-            <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="section-heading uppercase">Attraction Locater</h3>
-                    </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="section-heading uppercase">Attraction Locater</h3>
             </div>
-        <div class="row col-md-12">    
+        </div>
+        <div class="row col-md-12">
             <div id="map" class="col-xs-12 col-sm-12 col-md-8 bg-color-map section-column"></div>
-            
+
             <div class="col-xs-12 col-sm-12 col-md-4 bg-color-attraction attraction-shape">
-                <form>
-                     <div class="form-group">
-                        <select id="dest" onchange="fetchcity();">
-                            <option value="city">Select City</option>
-                            <option value="paris">Paris</option>
-                            <option value="berlin">Berlin</option>
-                            <option value="rome">Rome</option>
-                        </select>
+                <div class="form-inline inputs">
+
+                    <div class="criteria-item form-group">
+                        <input type="text" name="term" id="whereTo" class="controls" placeholder="Where to....." />
                     </div>
 
+                    
                     <div class="form-group">
-                        <select id="attraction" onchange="fetchAtt();">
-                            <option value="selAct">Select Actraction</option>
-                            <option value="cafe">Cafe</option>
-                            <option value="restauraunt">Resteraunt</option>
-                            <option value="drink">Bars/Pubs</option>
-                        </select>
+                        <label for="searchTerm">Attraction:</label>
+                        <input type="text" id="searchTerm" value="WAWA" class="form-control">
                     </div>
-                </form>
+
+                    <button type="button" id="find" class="btn btn-success">Go!</button>
+                </div>
             </div>
-        </div>    
+        </div>
 
     </section>
-
-
-
-
 
 
 
@@ -217,10 +196,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3e2rcmbHaheAH_Qgn22I8rnXoySvx2jE&callback=initMap"  type="text/javascript"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3e2rcmbHaheAH_Qgn22I8rnXoySvx2jE&libraries=places"></script>
-    
-   
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3e2rcmbHaheAH_Qgn22I8rnXoySvx2jE&libraries=places&callback=activatePlacesSearch&callback=initMap" type="text/javascript"></script>
+
+
+
     <script type="text/javascript" src="assets/js/maps.js"></script>
     <script type="text/javascript" src="assets/js/packages.js"></script>
 
@@ -228,4 +207,6 @@
 
 </html>
 
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3e2rcmbHaheAH_Qgn22I8rnXoySvx2jE&libraries=places">*/*-->
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3e2rcmbHaheAH_Qgn22I8rnXoySvx2jE&libraries=places"></script>">
+
+*/*s-->
