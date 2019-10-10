@@ -39,15 +39,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#packages">Packages</a>
                     </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Attractions</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#locations">Local Attractions</a>
-                            <a class="dropdown-item" href="#cost">Cost Comparison</a>
-                        </div>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#packages">Attractions</a>
                     </li>
-
 
                 </ul>
             </div>
@@ -61,17 +55,16 @@
             <div class="row criteria-shape">
                 <form>
 
-
                     <div class="criteria-item form-group">
                         <input type="text" name="term" id="search_term" class="controls" placeholder="Where to....." />
                     </div>
 
                     <div class="criteria-item form-group">
-                        <select id="holType" onchange="fetchtype();">
-                            <option value="holType">Holiday Type</option>
+                        <select id="holType">
+                            <option value="holType1">Holiday Type</option>
                             <option value="famGet">Family Getaway</option>
-                            <option value="romRet">Romantic Retreat</option>
-                            <option value="friEsc">Friends Escape</option>
+                            <option value="romGet">Romantic Retreat</option>
+                            <option value="friGet">Friends Escape</option>
                         </select>
                     </div>
 
@@ -89,7 +82,7 @@
                     </div>
 
                     <div>
-                        <button type="submit" class="btn--cta btn--color">Find Perfect Holiday!</button>
+                        <button id="searchbtn" type="submit" class="btn--cta btn--color" onclick="fetchtype();">Find Perfect Holiday!</button>
                     </div>
 
                 </form>
@@ -100,40 +93,46 @@
     <!--*******PACKAGES*******-->
     <section id="packages">
 
+        <div class="row hdr-background">
+            <div class="col-md-12">
+                <h3>The best packages to meet your needs in <span id="locpic"></span></h3>
+            </div> 
+        </div>
+        
+        <div id="packagepref" class="row col-xs-12 col-sm-12 col-md-12"></div>
 
-        <div id="romantic-packages" class="col-xs-12 col-sm-12 col-md-12"></div>
-        <div id="family-packages" class="col-xs-12 col-sm-12 col-md-12"></div>
 
     </section>
     <!--*******LOCATIONS*******-->
     <section id="locations">
-
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="section-heading uppercase">Attraction Locater</h3>
+        <div class="container-fluid">   
+            <div class="row hdr-background">
+                <div class="col-md-12">
+                    <h3>The best Attractions in</h3>
+                </div>
             </div>
-        </div>
-        <div class="row col-md-12">
-            <div id="map" class="col-xs-12 col-sm-12 col-md-8 bg-color-map section-column"></div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4 bg-color-attraction attraction-shape">
-                <div class="form-inline inputs">
+            <div class="row col-xs-12 col-sm-12 col-md-12">
+                <div id="map" class="col-xs-12 col-sm-12 col-md-8 bg-color-map section-column"></div>
 
-                    <div class="criteria-item form-group">
-                        <input type="text" name="term" id="whereTo" class="controls" placeholder="Where to....." />
+                <div class="col-xs-12 col-sm-12 col-md-4 attraction-shape">
+                    <div class="form-inline inputs search-background">
+
+                        <div class="criteria-item form-group">
+                            <input type="text" name="term" id="whereTo" class="controls" placeholder="Where to....." />
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="searchTerm">Attraction:</label>
+                            <input type="text" id="searchTerm" value="WAWA" class="form-control">
+                        </div>
+
+                        <button type="button" id="find" class="btn btn-success">Go!</button>
                     </div>
-
-                    
-                    <div class="form-group">
-                        <label for="searchTerm">Attraction:</label>
-                        <input type="text" id="searchTerm" value="WAWA" class="form-control">
-                    </div>
-
-                    <button type="button" id="find" class="btn btn-success">Go!</button>
                 </div>
             </div>
         </div>
-
     </section>
 
 

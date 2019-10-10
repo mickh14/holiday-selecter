@@ -28,6 +28,32 @@
     background-color: #f4f4f4;
 }
 
+.hdr-background{
+    height: 10vh;
+    background: url("../images/horiz.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.search-background{
+    height: 100vh;
+    background: url("../images/telescope.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
 /*-----------------header*/
 
 
