@@ -27,19 +27,19 @@ $('#whereTo').on('click', function() {
 
 });
 
-/*-----------------Fetch and display packages using Ajax------------------------------
+/*-----------------Fetch and display packages using Ajax------------------------------*/
 
 function fetchtype() {
 
     var selectType = document.getElementById("holType").value;
     var selectdest = document.getElementById("search_term").value;
     console.log(selectdest);
-    $('#locpic').append('<b>selectdest</b>')
+    $('#locpic').append($("selectdest.value"));
 
 }
-*/
 
-/*-----------------booking apix------------------------------*/
+
+/*-----------------booking apix------------------------------
 var req = unirest("GET", "https://apidojo-booking-v1.p.rapidapi.com/properties/list");
 
 req.query({
@@ -71,6 +71,9 @@ req.end(function (res) {
 
 	console.log(res.body);
 });
+===================================
+
+*/
 
 /*
 $.ajax({

@@ -96,16 +96,16 @@
         <div class="row hdr-background">
             <div class="col-md-12">
                 <h3>The best packages to meet your needs in <span id="locpic"></span></h3>
-            </div> 
+            </div>
         </div>
-        
+
         <div id="packagepref" class="row col-xs-12 col-sm-12 col-md-12"></div>
 
 
     </section>
     <!--*******LOCATIONS*******-->
     <section id="locations">
-        <div class="container-fluid">   
+        <div class="container-fluid">
             <div class="row hdr-background">
                 <div class="col-md-12">
                     <h3>The best Attractions in</h3>
@@ -122,12 +122,23 @@
                             <input type="text" name="term" id="whereTo" class="controls" placeholder="Where to....." />
                         </div>
 
-
                         <div class="form-group">
-                            <label for="searchTerm">Attraction:</label>
-                            <input type="text" id="searchTerm" value="WAWA" class="form-control">
+                            <select id="searchTerm" value="cafe" class="form-control">
+                            <option value="select">---Select Attraction---</option>
+                            <option value="bar">bar</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="night_club">Night Club</option>
+                            <option value="museum">Museum</option>
+                            <option value="amusement_park">Amusement Park</option>
+                            <option value="cafe">Cafe</option>
+                            <option value="airport">Airport</option>
+                            <option value="bus_station">Bus Station</option>
+                            <option value="atm">ATM</option>
+                            <option value="casino">Casino</option>
+                        </select>
                         </div>
-
+                        
+                        
                         <button type="button" id="find" class="btn btn-success">Go!</button>
                     </div>
                 </div>
