@@ -17,6 +17,7 @@
 
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
 
@@ -55,34 +56,42 @@
             <div class="row criteria-shape">
                 <form>
 
-                    <div class="criteria-item form-group">
-                        <input type="text" name="term" id="search_term" class="controls" placeholder="Where to....." />
-                    </div>
+                    <div class="row form-inline inputs">
+                        <ul>
+                            <div class="search-style">
+                                <li>
+                                    <input type="text" name="term" id="search_term" class="controls search-style" placeholder="Where to....." />
+                                </li>
+                            </div>
+                            
+                            <div class="dates search-style">
+                                <li>
+                                    <input type="text" id="enterDate" placeholder="Date">
+                                </li>
+                            </div>
 
-                    <div class="criteria-item form-group">
-                        <select id="holType">
-                            <option value="holType1">Holiday Type</option>
-                            <option value="famGet">Family Getaway</option>
-                            <option value="romGet">Romantic Retreat</option>
-                            <option value="friGet">Friends Escape</option>
-                        </select>
-                    </div>
+                            <div class="dates search-style">
+                                <li>
+                                    <input type="text" id="arrDate" placeholder="Arrival Date" required>
+                                </li>
+                            </div>
+                            <div class="dates search-style">
+                                <li>
+                                    <input type="text" id="depDate" placeholder="Departure Date" required>
+                                </li>
+                            </div>
+                            <div class="search-style">
+                                <li>
+                                    <button id="searchbtn" type="submit" class="btn--cta btn--color" onclick="fethHotelDetails()">Find Perfect Holiday!</button>
+                                </li>
+                            </div>
 
-                    <div class="criteria-item form-group">
-                        <select required>
-                            <option value="">Duration</option>
-                            <option value="France">3 Dyas</option>
-                            <option value="Germany">7 Days</option>
-                            <option value="Italy">14 Days</option>
-                        </select>
-                    </div>
 
-                    <div class="criteria-item form-group">
-                        <input type="date" class="form-control" id="dateValidation" placeholder="Enter Date" required>
-                    </div>
 
-                    <div>
-                        <button id="searchbtn" type="submit" class="btn--cta btn--color" onclick="fetchtype();">Find Perfect Holiday!</button>
+
+                        </ul>
+
+
                     </div>
 
                 </form>
@@ -92,14 +101,38 @@
     </section>
     <!--*******PACKAGES*******-->
     <section id="packages">
+        <div>
+            <div class="row hdr-background">
+                <div class="col-md-12">
+                    <h3>The best packages to meet your needs in <span id="locpic"></span></h3>
+                </div>
+            </div>
 
-        <div class="row hdr-background">
-            <div class="col-md-12">
-                <h3>The best packages to meet your needs in <span id="locpic"></span></h3>
+            <div class="row">
+                <div class="col 3" id="hotelImage"></div>
+                <div class="col 7" id="hotelName"></div>
+                <div class="2" id="hotelButton">
+                    <button type="submit" class="btn btn--cta btn--red">Book Now!</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col 3" id="hotelImage"></div>
+                <div class="col 7" id="hotelName"></div>
+                <div class="2" id="hotelButton">
+                    <button type="submit" class="btn btn--cta btn--red">Book Now!</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col 3" id="hotelImage"></div>
+                <div class="col 7" id="hotelName"></div>
+                <div class="2" id="hotelButton">
+                    <button type="submit" class="btn btn--cta btn--red">Book Now!</button>
+                </div>
             </div>
         </div>
 
-        <div id="packagepref" class="row col-xs-12 col-sm-12 col-md-12"></div>
 
 
     </section>
@@ -115,8 +148,8 @@
             <div class="row col-xs-12 col-sm-12 col-md-12">
                 <div id="map" class="col-xs-12 col-sm-12 col-md-8 bg-color-map section-column"></div>
 
-                <div class="col-xs-12 col-sm-12 col-md-4 attraction-shape">
-                    <div class="form-inline inputs search-background">
+                <div class="col-xs-12 col-sm-12 col-md-4 attraction-shape search-background">
+                    <div class="form-inline inputs ">
 
                         <div class="criteria-item form-group">
                             <input type="text" name="term" id="whereTo" class="controls" placeholder="Where to....." />
@@ -137,9 +170,9 @@
                             <option value="casino">Casino</option>
                         </select>
                         </div>
-                        
-                        
-                        <button type="button" id="find" class="btn btn-success">Go!</button>
+
+
+                        <button type="button" id="find" class="btn btn--cta btn--red">Go!</button>
                     </div>
                 </div>
             </div>
@@ -202,6 +235,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
@@ -212,6 +246,7 @@
 
     <script type="text/javascript" src="assets/js/maps.js"></script>
     <script type="text/javascript" src="assets/js/packages.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap-datepicker.js"></script>
 
 </body>
 

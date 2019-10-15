@@ -95,8 +95,13 @@
     box-sizing: border-box;
     transition: .5s;
 }
+.search-style {
+    list-style-type: none;
+}
 
-
+.search-style li {
+    display: inline-block;
+}
 
 
 .btn--cta {
@@ -111,13 +116,37 @@
     margin: 2px;
     }
 
+
+/*-----------------Packages*/
+.btn--cta {
+    font-weight: bold;
+    border-radius: 23px;
+    width: 160;
+    }
+
+.btn--red {
+    color: white;
+    background-color: #f05f40;
+    border-color: #f05f40;
+    margin: 10px;
+
+}
+
+
+
+
+
 /*-----------------attractions*/
 
 .attraction-shape{
   margin: auto;
-  width: 60%;
+  width: 20%;
   padding: 10px;
 }
+
+
+
+
 
 /*-----------------footer*/
 
