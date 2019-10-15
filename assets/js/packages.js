@@ -32,14 +32,14 @@ $('#whereTo').on('click', function() {
 
 /*-----------------Date Picker------------------------------*/
 $(function() {
-    $('.dates #depDate').datepicker({
+    $('.dates #leaveDate').datepicker({
         'format': 'yyyy-mm-dd',
         'autoclose': false
     });
 });
 
 $(function() {
-    $('.dates #arrDate').datepicker({
+    $('.dates #enterDate').datepicker({
         'format': 'yyyy-mm-dd',
         'autoclose': false
     });
@@ -60,14 +60,14 @@ function fetchtype() {
 */
 
 /*-----------------booking apix------------------------------
-https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=+arrDate+&departure_date=2019-11-15&price_filter_currencycode=USD&travel_purpose=leisure&categories_filter=price%3A%3A9-40%2Cfree_cancellation%3A%3A1%2Cclass%3A%3A1%2Cclass%3A%3A0%2Cclass%3A%3A2&search_id=none&order_by=popularity&children_qty=2&languagecode=en-us&children_age=5%2C7&search_type=city&offset=0&dest_ids=-3712125&guest_qty=1&room_qty=1
+https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=+arrDate+&departure_date=+leaveDate+&price_filter_currencycode=USD&travel_purpose=leisure&categories_filter=price%3A%3A9-40%2Cfree_cancellation%3A%3A1%2Cclass%3A%3A1%2Cclass%3A%3A0%2Cclass%3A%3A2&search_id=none&order_by=popularity&children_qty=2&languagecode=en-us&children_age=5%2C7&search_type=city&offset=0&dest_ids=-3712125&guest_qty=1&room_qty=1
 
 */
 
 
 function fethHotelDetails() {
     var arrDate = $("#enterDate").val();
-    //var depDate = $("#depDate").val();
+    var leaveDate = $("#leaveDate").val();
     console.log(arrDate);
     
 var settings = {
@@ -81,8 +81,20 @@ var settings = {
 	}
 };
 
+//can I use a promis, when response then do XYZ
+
 $.ajax(settings).done(function (response) {
-	console.log(response[0].result[8].hotel_name);
+	//console.log(response.result[8].hotel_name);
+	function fetchHotels(response){
+	    if (status === 200){
+	        for (var i = 0; i < response.result.length; i++) {
+	            var hotel = response.result[8].hotel_name;
+	            console.log(hotel);
+	        }
+	    } else{
+	        console.log("error");
+	    }
+	}
 });
     
     
