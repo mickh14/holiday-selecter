@@ -41,7 +41,7 @@
                         <a class="nav-link" href="#packages">Packages</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#packages">Attractions</a>
+                        <a class="nav-link" href="#attractions">Attractions</a>
                     </li>
 
                 </ul>
@@ -55,7 +55,6 @@
         <div class="container-fluid search-container">
             <div class="row criteria-shape">
                 <form>
-
                     <div class="row form-inline inputs">
                         <ul>
                             <div class="search-style">
@@ -69,7 +68,7 @@
                                     <input type="text" id="enterDate" placeholder="Arrive Date">
                                 </li>
                             </div>
-                            
+
                             <div class="dates search-style">
                                 <li>
                                     <input type="text" id="leaveDate" placeholder="Departure Date">
@@ -83,18 +82,13 @@
                             </div>
                             <div class="search-style">
                                 <li>
-                                    <button id="searchbtn" type="submit" class="btn--cta btn--color" onclick="fethHotelDetails()">Find Perfect Holiday!</button>
+                                    <a href="#packages">
+                                        <button id="searchbtn" type="submit" class="btn--cta btn--color" onclick="fethHotelDetails()">Find Perfect Holiday!</button>
+                                    </a>
                                 </li>
                             </div>
-
-
-
-
                         </ul>
-
-
                     </div>
-
                 </form>
             </div>
 
@@ -103,32 +97,26 @@
     <!--*******PACKAGES*******-->
     <section id="packages">
         <div>
-            <div class="row hdr-background">
-                <div class="col-md-12">
-                    <h3>The best packages to meet your needs in <span id="locpic"></span></h3>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col 3" id="hotelImage"></div>
-                <div class="col 7" id="hotelName"></div>
-                <div class="2" id="hotelButton">
+            <div class="row pack-bg-color-one">
+                <!--<div class="col-md-10" id="hotelImage"></div>-->
+                <div class="col-md-10" id="hotelNameOne"></div>
+                <div class="col-md-2 offset-md-10" id="hotelButton">
                     <button type="submit" class="btn btn--cta btn--red">Book Now!</button>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col 3" id="hotelImage"></div>
-                <div class="col 7" id="hotelName"></div>
-                <div class="2" id="hotelButton">
+            <div class="row pack-bg-color-two">
+                <!--<div class="col 3" id="hotelImage"></div>-->
+                <div class="col-md-10" id="hotelNameTwo"></div>
+                <div class="col-md-2" id="hotelButton">
                     <button type="submit" class="btn btn--cta btn--red">Book Now!</button>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col 3" id="hotelImage"></div>
-                <div class="col 7" id="hotelName"></div>
-                <div class="2" id="hotelButton">
+            <div class="row pack-bg-color-one">
+                <!--<div class="col 3" id="hotelImage"></div>-->
+                <div class="col-md-10" id="hotelNameThree"></div>
+                <div class="col-md-2" id="hotelButton">
                     <button type="submit" class="btn btn--cta btn--red">Book Now!</button>
                 </div>
             </div>
@@ -137,15 +125,9 @@
 
 
     </section>
-    <!--*******LOCATIONS*******-->
-    <section id="locations">
+    <!--*******Attractions*******-->
+    <section id="attractions">
         <div class="container-fluid">
-            <div class="row hdr-background">
-                <div class="col-md-12">
-                    <h3>The best Attractions in</h3>
-                </div>
-            </div>
-
             <div class="row col-xs-12 col-sm-12 col-md-12">
                 <div id="map" class="col-xs-12 col-sm-12 col-md-8 bg-color-map section-column"></div>
 

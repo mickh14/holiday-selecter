@@ -28,6 +28,17 @@
     background-color: #f4f4f4;
 }
 
+.pack-bg-color-one{
+     background-color: #2b4aad;
+     color: #ffff;
+}
+
+.pack-bg-color-two{
+     background-color: #8891ad;
+     color: #ffff;
+     
+}
+
 .hdr-background{
     height: 10vh;
     background: url("../images/horiz.jpg") no-repeat center fixed;
@@ -58,7 +69,7 @@
 
 
 .menuitem {
-    color: #f05f40;
+    color: #ea9116;
     font-family: fantasy;
 }
 
@@ -111,8 +122,8 @@
     
 .btn--color {
     color: white;
-    background-color: #f05f40;
-    border-color: #f05f40;
+    background-color: #ea9116;
+    border-color: #ea9116;
     margin: 2px;
     }
 
@@ -126,8 +137,8 @@
 
 .btn--red {
     color: white;
-    background-color: #f05f40;
-    border-color: #f05f40;
+    background-color: #ea9116;
+    border-color: #ea9116;
     margin: 10px;
 
 }
