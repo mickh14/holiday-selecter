@@ -51,40 +51,40 @@
     </header>
     </header>
     <!--*******SEARCH*******-->
-    <section id="search">
-        <div class="container-fluid search-container">
-            <div class="row criteria-shape">
+    <section class="container-fluid" id="search">
+        <div class="search-container">
+            <div class="criteria-shape">
                 <form>
                     <div class="row form-inline inputs">
-                        <ul>
-                            <div class="search-style">
+                        <ul class="search-style">
+                            <div>
                                 <li>
-                                    <input type="text" name="term" id="search_term" class="controls search-style" placeholder="Where to....." />
+                                    <input type="text" name="term" id="search_term" class="controls" placeholder="Where to....." />
                                 </li>
                             </div>
 
-                            <div class="dates search-style">
+                            <div class="dates ">
                                 <li>
                                     <input type="text" id="enterDate" placeholder="Arrive Date">
                                 </li>
                             </div>
 
-                            <div class="dates search-style">
+                            <div class="dates">
                                 <li>
                                     <input type="text" id="leaveDate" placeholder="Departure Date">
                                 </li>
                             </div>
 
-                            <div class="dates search-style">
+                            <div class="no-date">
                                 <li>
                                     <input type="text" id="depDate" placeholder="Departure Date" required>
                                 </li>
                             </div>
-                            <div class="search-style">
-                                <li>
-                                    <a href="#packages">
-                                        <button id="searchbtn" type="submit" class="btn--cta btn--color" onclick="fethHotelDetails()">Find Perfect Holiday!</button>
-                                    </a>
+                            <div class="">
+                                <li class="">
+
+                                    <a href="#packages" class="hvr-sweep-to-bottom btn--cta btn--color" onclick="fethHotelDetails()"><i aria-hidden="true"></i><span>Find Perfect Holiday!</span></a>
+
                                 </li>
                             </div>
                         </ul>
@@ -94,30 +94,52 @@
 
         </div>
     </section>
-    <!--*******PACKAGES*******-->
-    <section id="packages">
+    <!--
+                                    <li>
+                                    <a href="#packages">
+                                        <button id="searchbtn" type="submit" class="btn--cta btn--color" onclick="fethHotelDetails()">Find Perfect Holiday!</button>
+                                    </a>
+                                </li>
+    *******PACKAGES*******-->
+    <section class="container-fluid" id="packages">
         <div>
-            <div class="row pack-bg-color-one">
-                <!--<div class="col-md-10" id="hotelImage"></div>-->
-                <div class="col-md-10" id="hotelNameOne"></div>
-                <div class="col-md-2 offset-md-10" id="hotelButton">
-                    <button type="submit" class="btn btn--cta btn--red">Book Now!</button>
+            <div class="row package-one-bg">
+                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageOne"><img class="hotel-pic" src="assets/images/hotel.jpg" alt="hotel" /></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameOne"></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
+                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
                 </div>
             </div>
 
-            <div class="row pack-bg-color-two">
-                <!--<div class="col 3" id="hotelImage"></div>-->
-                <div class="col-md-10" id="hotelNameTwo"></div>
-                <div class="col-md-2" id="hotelButton">
-                    <button type="submit" class="btn btn--cta btn--red">Book Now!</button>
+            <div class="row package-two-bg">
+                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageTwo"><img class="hotel-pic" src="assets/images/hotel.jpg" alt="hotel" /></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameTwo"></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
+                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
                 </div>
             </div>
 
-            <div class="row pack-bg-color-one">
-                <!--<div class="col 3" id="hotelImage"></div>-->
-                <div class="col-md-10" id="hotelNameThree"></div>
-                <div class="col-md-2" id="hotelButton">
-                    <button type="submit" class="btn btn--cta btn--red">Book Now!</button>
+            <div class="row package-one-bg">
+                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageThree"><img class="hotel-pic" src="assets/images/hotel.jpg" alt="hotel" /></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameThree"></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
+                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
+                </div>
+            </div>
+
+            <div class="row package-two-bg">
+                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageFour"><img class="hotel-pic" src="assets/images/hotel.jpg" alt="hotel" /></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameFour"></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
+                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
+                </div>
+            </div>
+
+            <div class="row package-one-bg">
+                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageFive"><img class="hotel-pic" src="assets/images/hotel.jpg" alt="hotel" /></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameFive"></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
+                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
                 </div>
             </div>
         </div>
@@ -126,19 +148,21 @@
 
     </section>
     <!--*******Attractions*******-->
-    <section id="attractions">
-        <div class="container-fluid">
-            <div class="row col-xs-12 col-sm-12 col-md-12">
-                <div id="map" class="col-xs-12 col-sm-12 col-md-8 bg-color-map section-column"></div>
+    <section class="container-fluid" id="attractions">
 
-                <div class="col-xs-12 col-sm-12 col-md-4 attraction-shape search-background">
-                    <div class="form-inline inputs ">
+        <div class="row">
+            <div id="map" class="col-xs-12 col-sm-12 col-md-9 bg-color-map section-column"></div>
 
-                        <div class="criteria-item form-group">
+            <div class="col-xs-12 col-sm-12 col-md-3 search-background">
+
+                <ul class="search-style">
+                    <li>
+                        <div class="form-group att-element-style">
                             <input type="text" name="term" id="whereTo" class="controls" placeholder="Where to....." />
                         </div>
-
-                        <div class="form-group">
+                    </li>
+                    <li>
+                        <div class="form-group att-element-style">
                             <select id="searchTerm" value="cafe" class="form-control">
                             <option value="select">---Select Attraction---</option>
                             <option value="bar">bar</option>
@@ -152,14 +176,24 @@
                             <option value="atm">ATM</option>
                             <option value="casino">Casino</option>
                         </select>
+                            <button type="button" id="find" class="btn btn--cta btn--red">Go!</button>
                         </div>
+                    </li>
 
 
-                        <button type="button" id="find" class="btn btn--cta btn--red">Go!</button>
-                    </div>
-                </div>
+                </ul>
+
+
+
+
+
+
+
+
             </div>
+
         </div>
+
     </section>
 
 
@@ -215,9 +249,121 @@
 
     </footer>
 
+    <!--*******booking-Modal*******-->
+    <div class="modal" tabindex="-1" role="dialog" id="bookingModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Congratulations on selecting your next holiday.</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="fnameValidation">First name</label>
+                                <input type="text" class="form-control" id="fnameValidation" placeholder="First name" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="snameValidation">Last name</label>
+                                <input type="text" class="form-control" id="snameValidation" placeholder="Last name" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustomUsername">Email</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="uniqueemail" placeholder="email" aria-describedby="inGroupPrepend" required>
+
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inGroupPrepend">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="provider" aria-describedby="inGroupPrepend" required>
+                                    <div class="invalid-feedback">
+                                        Please enter email address.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="cityValidation">City</label>
+                                <input type="text" class="form-control" id="cityValidation" placeholder="City" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid city.
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="stateValidation">State</label>
+                                <input type="text" class="form-control" id="stateValidation" placeholder="State" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="postcodeValidation">Postcode</label>
+                                <input type="text" class="form-control" id="postcodeValidation" placeholder="Postcode" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid Postcode.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="venueValidation">Venue</label>
+                                <input type="text" class="form-control" id="venueValidation" placeholder="Venue" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid Venue.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                    Please ticket to confirm you are over 18
+                                </label>
+                                <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn--cta btn--red">Book Now!</button>
+                    </form>
+
+                    <script>
+                        // Example starter JavaScript for disabling form submissions if there are invalid fields
+                        (function() {
+                            'use strict';
+                            window.addEventListener('load', function() {
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.getElementsByClassName('needs-validation');
+                                // Loop over them and prevent submission
+                                var validation = Array.prototype.filter.call(forms, function(form) {
+                                    form.addEventListener('submit', function(event) {
+                                        if (form.checkValidity() === false) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add('was-validated');
+                                    }, false);
+                                });
+                            }, false);
+                        })();
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /booking modal -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

@@ -30,81 +30,139 @@ $('#whereTo').on('click', function() {
 
 
 
-/*-----------------Date Picker------------------------------*/
-$(function() {
+/*-----------------Date Picker------------------------------
+$(document).ready(function() {
     $('.dates #leaveDate').datepicker({
         'format': 'yyyy-mm-dd',
         'autoclose': false
     });
 });
+*/
 
-$(function() {
-    $('.dates #enterDate').datepicker({
-        'format': 'yyyy-mm-dd',
-        'autoclose': false
+$(document).ready(function() {
+    var minDate = new Date();
+    $("#enterDate").datepicker({
+        format: 'yyyy-mm-dd',
+        minDate: minDate,
+        onClose: function(selectedDate) {
+            $('#leaveDate').datepicker("option", "minDate", selectedDate)
+        }
+    });
+    
+    $("#leaveDate").datepicker({
+        format: 'yyyy-mm-dd',
+        minDate: minDate,
+        onClose: function(selectedDate) {
+            $('#enterDate').datepicker("option", "minDate", selectedDate)
+        }
     });
 });
 
 
 
-/*-----------------Fetch and display packages using Ajax------------------------------
 
-function fetchtype() {
-
-    var selectType = document.getElementById("holType").value;
-    var selectdest = document.getElementById("search_term").value;
-    console.log(selectdest);
-    $('#locpic').
-
-}
-*/
-
-/*-----------------booking apix------------------------------
-https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=+arrDate+&departure_date=+leaveDate+&price_filter_currencycode=USD&travel_purpose=leisure&categories_filter=price%3A%3A9-40%2Cfree_cancellation%3A%3A1%2Cclass%3A%3A1%2Cclass%3A%3A0%2Cclass%3A%3A2&search_id=none&order_by=popularity&children_qty=2&languagecode=en-us&children_age=5%2C7&search_type=city&offset=0&dest_ids=-3712125&guest_qty=1&room_qty=1
-
-*/
+/*-----------------fetch hotel details from API------------------------------*/
 function hotelInformationHTML(hotelDetails) {
     return `
-        <h1">${hotelDetails.result[0].hotel_name}</h1>
-        <p>Room Type: ${hotelDetails.copyright[0]}</p>
-        <p>All Inclusive Price: ${hotelDetails.result[0].price_breakdown.all_inclusive_price}${hotelDetails.result[0].price_breakdown.currency}</p>
-        <span class="url-style">
-                Visit:<a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[8].hotel_name}</a>
+        <ul style="list-style: none;">
+                <li>
+                    <i class="hotel-icon fas fa-h-square" aria-hidden="true"></i> <span class="hotel-text">${hotelDetails.result[0].hotel_name}</span>
+                </li>
+                <li >
+                    <i class="hotel-detail-icon fas fa-bed" aria-hidden="true"></i><span class="hotel-detail-text"> ${hotelDetails.copyright[1]}</span>
+                </li>
+                <li >
+                    <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
+                <a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[0].hotel_name}</a>
             </span>
+                </li>
+            </ul>
         `;
 }
 
 function hoteltwoInformationHTML(hotelDetails) {
     return `
-        <h1">${hotelDetails.result[1].hotel_name}</h1>
-        <p>Room Type: ${hotelDetails.copyright[1]}</p>
-        <p>All Inclusive Price: ${hotelDetails.result[1].price_breakdown.all_inclusive_price}${hotelDetails.result[1].price_breakdown.currency}</p>
-        <span class="url-style">
-                Visit:<a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[1].hotel_name}</a>
+        <ul style="list-style: none;">
+                <li>
+                    <i class="hotel-icon fas fa-h-square" aria-hidden="true"></i> <span class="hotel-text">${hotelDetails.result[1].hotel_name}</span>
+                </li>
+                <li >
+                    <i class="hotel-detail-icon fas fa-bed" aria-hidden="true"></i><span class="hotel-detail-text"> ${hotelDetails.copyright[3]}</span>
+                </li>
+                <li >
+                    <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
+                <a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[1].hotel_name}</a>
             </span>
+                </li>
+            </ul>
         `;
 }
 
 function hoteThreelInformationHTML(hotelDetails) {
     return `
-        <h1">${hotelDetails.result[2].hotel_name}</h1>
-        <p>Room Type: ${hotelDetails.copyright[2]}</p>
-        <p>All Inclusive Price: ${hotelDetails.result[2].price_breakdown.all_inclusive_price}${hotelDetails.result[2].price_breakdown.currency}</p>
-        <span class="url-style">
-                Visit:<a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[2].hotel_name}</a>
+        <ul style="list-style: none;">
+                <li>
+                    <i class="hotel-icon fas fa-h-square" aria-hidden="true"></i> <span class="hotel-text">${hotelDetails.result[2].hotel_name}</span>
+                </li>
+                <li >
+                    <i class="hotel-detail-icon fas fa-bed" aria-hidden="true"></i><span class="hotel-detail-text"> ${hotelDetails.copyright[2]}</span>
+                </li>
+                <li >
+                    <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
+                <a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[6].hotel_name}</a>
             </span>
+                </li>
+            </ul>
         `;
 }
 
-function fethHotelDetails() {
+function hotelfourlInformationHTML(hotelDetails) {
+    return `
+        <ul style="list-style: none;">
+                <li>
+                    <i class="hotel-icon fas fa-h-square" aria-hidden="true"></i> <span class="hotel-text">${hotelDetails.result[3].hotel_name}</span>
+                </li>
+                <li >
+                    <i class="hotel-detail-icon fas fa-bed" aria-hidden="true"></i><span class="hotel-detail-text"> ${hotelDetails.copyright[10]}</span>
+                </li>
+                <li >
+                    <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
+                <a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[3].hotel_name}</a>
+            </span>
+                </li>
+            </ul>
+        `;
+}
+
+function hotelfivelInformationHTML(hotelDetails) {
+    return `
+        <ul style="list-style: none;">
+                <li>
+                    <i class="hotel-icon fas fa-h-square" aria-hidden="true"></i> <span class="hotel-text">${hotelDetails.result[4].hotel_name}</span>
+                </li>
+                <li >
+                    <i class="hotel-detail-icon fas fa-bed" aria-hidden="true"></i><span class="hotel-detail-text"> ${hotelDetails.copyright[13]}</span>
+                </li>
+                <li >
+                    <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
+                <a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[4].hotel_name}</a>
+            </span>
+                </li>
+            </ul>
+        `;
+}
+
+function fethHotelDetails(dest) {
     var arrDate = $("#enterDate").val();
     var leaveDate = $("#leaveDate").val();
-    //console.log(arrDate);
+    //hotelLngLat to be used as dest_ids
+    var hotelLngLat = dest;
+    console.log(arrDate); 
 
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=2019-11-15&departure_date=2019-11-19&dest_ids=-3712125",
+        "url": "https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date="+arrDate+"&departure_date="+leaveDate+"&dest_ids=-3712125",
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
@@ -112,58 +170,55 @@ function fethHotelDetails() {
         }
     };
 
-    //can I use a promis, when response then do XYZ
+    
+        
 
     $.when(
         $.ajax(settings).done(function(response) {
             //console.log(response.result[8].hotel_name);
             //console.log(response);
+            
         })
     ).then(
-        function (response) {
+        function(response) {
             var hotelDetails = response;
             console.log(response);
-            
-            
+
+
             $("#hotelNameOne").html(hotelInformationHTML(hotelDetails));
             $("#hotelNameTwo").html(hoteltwoInformationHTML(hotelDetails));
             $("#hotelNameThree").html(hoteThreelInformationHTML(hotelDetails));
+            $("#hotelNameFour").html(hotelfourlInformationHTML(hotelDetails));
+            $("#hotelNameFive").html(hotelfivelInformationHTML(hotelDetails));
         }
+
 
     );
 
-    
-    }
-
-
-    /*-----------------/booking apix------------------------------*/
-
-    /*
-    $.ajax({
-        method: 'GET',
-        url: 'https://jsonplaceholder.typicode.com/posts',
-        dataType: 'json'
-    }).done(function(data) {
-        console.log(data);
-        $.map(data, function(post, i) {
-            $('#packagepref').append('<h3>' + post.title + '</h3><p>' + post.body + '</p>');
-        });
+function geoCodeAddress(hotAddress) {
+  // return a Promise
+  var geocoder = new google.maps.Geocoder();
+  return new Promise(function(resolve,reject) {
+    geocoder.geocode({'address': hotAddress}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        // resolve results upon a successful status
+        resolve(results);
+        var dest = results[0].geometry.location;
+        console.log(dest);
+      } else {
+        // reject status upon un-successful status
+        reject(status);
+      }
     });
+  });
+}
+}
 
 
-    $.ajax(settings).done(function (response) {
-    	//console.log(response);
-    	dataType: 'json';
-    }).done(function(data){
-        console.log(data);
-            $.map(data, function(post, i) {
-            $('#packagepref').append('<h3>' + post.message + '</h3><p>' + post.body + '</p>');
-        });
-    })
 
-    */
 
-    /*-----------------Fetch and display packages to match search criteria using get HTML
+
+/*-----------------Loop to display hotel details - how do I get 
 
 then(
         function fetchHotels(response) {
@@ -173,7 +228,7 @@ then(
                     //var roomInfo = response.copyright[8];
                     //console.log(hotel);
                     //console.log(roomInfo);
-                    showHotelDetail(hotel);
+                    hotelInformationHTML(hotelDetails);
                 }
             }
             else {

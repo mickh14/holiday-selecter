@@ -3,6 +3,10 @@
 
 #map {min-height: 360px;} 
 
+.no-date{
+    visibility: hidden;
+}
+
 /*-----------------Backgrounds*/
 .search-container {
     height: 100vh;
@@ -17,6 +21,36 @@
     position: relative;
 }
 
+.package-two-bg {
+    width: 100%;
+   height: 100%;
+    background: url("../images/darksea.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.package-one-bg {
+    width: 100%;
+   height: 100%;
+    background: url("../images/darkSky.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
 
 .bg-color-map {
 
@@ -28,33 +62,17 @@
     background-color: #f4f4f4;
 }
 
-.pack-bg-color-one{
-     background-color: #2b4aad;
+.pack-style{
+    
      color: #ffff;
 }
 
-.pack-bg-color-two{
-     background-color: #8891ad;
-     color: #ffff;
-     
-}
 
-.hdr-background{
-    height: 10vh;
-    background: url("../images/horiz.jpg") no-repeat center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
 
 .search-background{
-    height: 100vh;
-    background: url("../images/telescope.jpg") no-repeat center fixed;
+   width: 100%;
+   height: 100%;
+   background: url("../images/whitewall.jpg") no-repeat center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -63,7 +81,10 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    text-align: center;
 }
+
+
 
 /*-----------------header*/
 
@@ -88,8 +109,8 @@
 /*-----------------search*/
 
 .criteria-shape{
-    margin: 0;
-    padding: 0;
+    margin: 10;
+    padding: 10;
     text-align: center;
     background-color: #4750ff2b;
     font-family: sans-serif;
@@ -99,25 +120,22 @@
     transform: translate(-50%, -50%);
 }
 
-.criteria-item {
-    position: relative;
-    display: inline-block;
-    font-size: 20px;
-    box-sizing: border-box;
-    transition: .5s;
-}
+
 .search-style {
     list-style-type: none;
 }
 
 .search-style li {
     display: inline-block;
+    padding-top: 10px;
+    border-radius: 23px;
 }
 
 
 .btn--cta {
     font-weight: bold;
     border-radius: 23px;
+    display: inline-block;
     }
     
 .btn--color {
@@ -127,12 +145,20 @@
     margin: 2px;
     }
 
+.hvr-sweep-to-bottom:before {
+
+    background: rgba(0, 0, 0, 0.2);
+
+    height: 50px;
+
+}
 
 /*-----------------Packages*/
 .btn--cta {
     font-weight: bold;
     border-radius: 23px;
-    width: 160;
+    height:50px;
+    width: 150px;
     }
 
 .btn--red {
@@ -143,18 +169,55 @@
 
 }
 
+.hotel-text {
+    font-size: 30px;
+    color: #ffff;
+}
+
+.hotel-detail-text {
+    font-size: 15px;
+    color: #ffff;
+}
 
 
+.hotel-icon {
+
+    font-size: 50px;
+
+    color: #e67e22;
+
+}
+
+.hotel-detail-icon {
+
+    font-size: 25px;
+
+    color: #e67e22;
+
+}
+
+.book_button{
+    height:50px;
+    width: 150px;
+    margin: auto;
+    margin-right:10px;
+    padding-bottom:10px:
+    float:left;
+    
+}
+
+.hotel-pic{
+    width: 90%;
+    height: 90%;
+}
 
 
 /*-----------------attractions*/
 
-.attraction-shape{
-  margin: auto;
-  width: 20%;
-  padding: 10px;
-}
 
+.att-element-style{
+    display: inline-block;
+}
 
 
 

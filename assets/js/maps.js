@@ -67,7 +67,7 @@ document.getElementById("find").addEventListener("click", function(){
   var address = document.getElementById("whereTo").value;
   //console.log(searchTerm);
 
-  //TODO geocode address
+  
   // call geocoder passing in address from user input #location
   geoCodeAddress(address)
   // geocoder returns a "then-able" promise with results
@@ -75,7 +75,7 @@ document.getElementById("find").addEventListener("click", function(){
   .then(function(results) {
     // when geocoder is done log the results in console
     updateMap(results[0].geometry.location, searchTerm);
-    console.log(results);
+    //console.log(results);
   });
 });
 
