@@ -1,9 +1,4 @@
-/*-----------------Autocomplete locations
-function activatePlacesSearch() {
-   var input = document.getElementById('search_term');
-   var Autocomplete = new google.maps.places.Autocomplete(input);
-}
-------------------works when intit map switched off --------------------------/
+
 
 /*-----------------Autocomplete function------------------------*/
 $('#search_term').on('click', function() {
@@ -45,7 +40,7 @@ $(document).ready(function() {
         format: 'yyyy-mm-dd',
         minDate: minDate,
         onClose: function(selectedDate) {
-            $('#leaveDate').datepicker("option", "minDate", selectedDate)
+            $('#leaveDate').datepicker("option", "minDate", selectedDate);
         }
     });
     
@@ -53,7 +48,7 @@ $(document).ready(function() {
         format: 'yyyy-mm-dd',
         minDate: minDate,
         onClose: function(selectedDate) {
-            $('#enterDate').datepicker("option", "minDate", selectedDate)
+            $('#enterDate').datepicker("option", "minDate", selectedDate);
         }
     });
 });
@@ -159,6 +154,7 @@ function fethHotelDetails(dest) {
     var hotelLngLat = dest;
     console.log(arrDate); 
 
+//API connection to Hotel list API
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -170,19 +166,36 @@ function fethHotelDetails(dest) {
         }
     };
 
-    
+//API connection to Hotel photos API    
+    var hotelSettings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://apidojo-booking-v1.p.rapidapi.com/properties/get-hotel-photos?languagecode=en-us&hotel_ids=1950932",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
+		"x-rapidapi-key": "ecace6c59emsh92e31436031b0c6p1b84d8jsnca11e04da872"
+	}
+};
+
+$.ajax(hotelSettings).done(function (Hotelresponse) {
+	console.log(Hotelresponse);
+});
         
 
     $.when(
-        $.ajax(settings).done(function(response) {
+        $.ajax(settings).done(function(firstResponse) {
             //console.log(response.result[8].hotel_name);
-            //console.log(response);
+            //console.log(Hotelresponse);
+            //var hotel_id = response.result[8].hotel_id;
+            //console.log(hotel_id);
             
         })
     ).then(
-        function(response) {
-            var hotelDetails = response;
-            console.log(response);
+        function(firstResponse) {
+            var hotelDetails = firstResponse;
+            
+            //console.log(hotel_id);
 
 
             $("#hotelNameOne").html(hotelInformationHTML(hotelDetails));
@@ -204,7 +217,7 @@ function geoCodeAddress(hotAddress) {
         // resolve results upon a successful status
         resolve(results);
         var dest = results[0].geometry.location;
-        console.log(dest);
+        //console.log(dest);
       } else {
         // reject status upon un-successful status
         reject(status);
