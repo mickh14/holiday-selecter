@@ -1,5 +1,3 @@
-
-
 /*-----------------Autocomplete function------------------------*/
 $('#search_term').on('click', function() {
 
@@ -43,7 +41,7 @@ $(document).ready(function() {
             $('#leaveDate').datepicker("option", "minDate", selectedDate);
         }
     });
-    
+
     $("#leaveDate").datepicker({
         format: 'yyyy-mm-dd',
         minDate: minDate,
@@ -152,13 +150,13 @@ function fethHotelDetails(dest) {
     var leaveDate = $("#leaveDate").val();
     //hotelLngLat to be used as dest_ids
     var hotelLngLat = dest;
-    console.log(arrDate); 
+    console.log(hotelLngLat);
 
-//API connection to Hotel list API
+    //API connection to Hotel list API
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date="+arrDate+"&departure_date="+leaveDate+"&dest_ids=-3712125",
+        "url": "https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=" + arrDate + "&departure_date=" + leaveDate + "&dest_ids=-3712125",
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
@@ -166,35 +164,34 @@ function fethHotelDetails(dest) {
         }
     };
 
-//API connection to Hotel photos API    
+    //API connection to Hotel photos API    
     var hotelSettings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://apidojo-booking-v1.p.rapidapi.com/properties/get-hotel-photos?languagecode=en-us&hotel_ids=1950932",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
-		"x-rapidapi-key": "ecace6c59emsh92e31436031b0c6p1b84d8jsnca11e04da872"
-	}
-};
+        "async": true,
+        "crossDomain": true,
+        "url": "https://apidojo-booking-v1.p.rapidapi.com/properties/get-hotel-photos?languagecode=en-us&hotel_ids=1950932",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
+            "x-rapidapi-key": "ecace6c59emsh92e31436031b0c6p1b84d8jsnca11e04da872"
+        }
+    };
 
-$.ajax(hotelSettings).done(function (Hotelresponse) {
-	console.log(Hotelresponse);
-});
-        
 
     $.when(
         $.ajax(settings).done(function(firstResponse) {
-            //console.log(response.result[8].hotel_name);
-            //console.log(Hotelresponse);
-            //var hotel_id = response.result[8].hotel_id;
-            //console.log(hotel_id);
-            
-        })
+            //console.log(firstResponse.result[8].hotel_name);
+            console.log(firstResponse);
+            var hotel_id = firstResponse.result[8].hotel_id;
+            console.log(hotel_id);
+
+        }).then(
+            $.ajax(hotelSettings).done(function(hotelresponse) {
+        console.log(hotelresponse);
+    })
     ).then(
         function(firstResponse) {
             var hotelDetails = firstResponse;
-            
+
             //console.log(hotel_id);
 
 
@@ -206,25 +203,26 @@ $.ajax(hotelSettings).done(function (Hotelresponse) {
         }
 
 
-    );
+    ));
 
-function geoCodeAddress(hotAddress) {
-  // return a Promise
-  var geocoder = new google.maps.Geocoder();
-  return new Promise(function(resolve,reject) {
-    geocoder.geocode({'address': hotAddress}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        // resolve results upon a successful status
-        resolve(results);
-        var dest = results[0].geometry.location;
-        //console.log(dest);
-      } else {
-        // reject status upon un-successful status
-        reject(status);
-      }
-    });
-  });
-}
+    function geoCodeAddress(hotAddress) {
+        // return a Promise
+        var geocoder = new google.maps.Geocoder();
+        return new Promise(function(resolve, reject) {
+            geocoder.geocode({ 'address': hotAddress }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    // resolve results upon a successful status
+                    resolve(results);
+                    var dest = results[0].geometry.location;
+                    //console.log(dest);
+                }
+                else {
+                    // reject status upon un-successful status
+                    reject(status);
+                }
+            });
+        });
+    }
 }
 
 
@@ -251,3 +249,15 @@ then(
 
     );
     */
+    
+    
+  /*  when for hotel list response
+    $.when(
+        $.ajax(settings).done(function(firstResponse) {
+            console.log(firstResponse.result[8].hotel_name);
+            console.log(firstResponse);
+            //var hotel_id = firstResponse.result[8].hotel_id;
+            //console.log(hotel_id);
+
+        })
+    )*/
