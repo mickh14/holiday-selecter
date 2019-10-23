@@ -29,7 +29,7 @@ My goal in design was to deliver an easy to navigate website allowing users to e
 
 ### Wireframe Mockups
 
-These can be found here: https://github.com/mickh14/holiday-selecter/blob/master/Hol-select.pdf](https://github.com/mickh14/holiday-selecter/blob/master/Hol-select.pdf)
+These can be found [here](https://github.com/mickh14/holiday-selecter/blob/master/Hol-select.pdf)
 
 ## Features
 
@@ -38,17 +38,17 @@ These can be found here: https://github.com/mickh14/holiday-selecter/blob/master
 - Background image of a picturesque holiday
 - Customers can enter search criteria and retrieve holiday packages
 
-### [Navigation](https://mickh14.github.io/holiday-selecter/) Bar
+### [Navigation Bar](https://mickh14.github.io/holiday-selecter/) 
 
 - A navigation bar to allow the users easily navigate between, search, packages and attractions section
 
-### [Package](https://mickh14.github.io/holiday-selecter/#packages)Section
+### [Package Section](https://mickh14.github.io/holiday-selecter/#packages)
 
 - Place field for that auto completes with any location in the world.
 - Result from the search on landing page to displayed for the user with booking button
   - Clicking the booking tab opens a modal to allow users enter details
 
-### [Attraction](https://mickh14.github.io/holiday-selecter/#attractions) Section
+### [Attraction Section](https://mickh14.github.io/holiday-selecter/#attractions) 
 
 - Place field for that auto completes with any location in the world.
 - Customers can enter search criteria and retrieve attractions in any location in the world
@@ -110,7 +110,7 @@ All html and css are checked through [https://validator.w3.org](https://validato
 ## **Deployment**
 
 My website is currently deployed on Github Pages - [https://mickh14.github.io/holiday-selecter/](https://mickh14.github.io/holiday-selecter/)
-Git HUB repository [https://github.com/mickh14/holiday-selecter](https://github.com/mickh14/holiday-selecter)
+[Git HUB repository](https://github.com/mickh14/holiday-selecter)
 
 I was able to deploy the website here by
 
