@@ -29,7 +29,7 @@ My goal in design was to deliver an easy to navigate website allowing users to e
 
 ### Wireframe Mockups
 
-These can be found at the below location
+These can be found here: https://github.com/mickh14/holiday-selecter/blob/master/Hol-select.pdf](https://github.com/mickh14/holiday-selecter/blob/master/Hol-select.pdf)
 
 ## Features
 
