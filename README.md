@@ -33,22 +33,22 @@ These can be found at the below location
 
 ## Features
 
-### [Landing Section](https://jtuck15.github.io/milestone-project-1/)
+### [Landing Section](https://mickh14.github.io/holiday-selecter/)
 
 - Background image of a picturesque holiday
 - Customers can enter search criteria and retrieve holiday packages
 
-### [Navigation](https://jtuck15.github.io/milestone-project-1/music.html) Bar
+### [Navigation](https://mickh14.github.io/holiday-selecter/) Bar
 
 - A navigation bar to allow the users easily navigate between, search, packages and attractions section
 
-### [Package](https://jtuck15.github.io/milestone-project-1/bookings.html)Section
+### [Package](https://mickh14.github.io/holiday-selecter/#packages)Section
 
 - Place field for that auto completes with any location in the world.
 - Result from the search on landing page to displayed for the user with booking button
   - Clicking the booking tab opens a modal to allow users enter details
 
-### [Attraction](https://jtuck15.github.io/milestone-project-1/band.html) Section
+### [Attraction](https://mickh14.github.io/holiday-selecter/#attractions) Section
 
 - Place field for that auto completes with any location in the world.
 - Customers can enter search criteria and retrieve attractions in any location in the world
