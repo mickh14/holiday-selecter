@@ -109,28 +109,29 @@ All html and css are checked through [https://validator.w3.org](https://validato
 
 ## **Deployment**
 
-My website is currently deployed on Github Pages - [https://mickh14.github.io/holiday-selecter/](https://mickh14.github.io/holiday-selecter/)
-[Git HUB repository](https://github.com/mickh14/holiday-selecter)
+My website is currently deployed on Github Pages - [The Holiday Selector](https://mickh14.github.io/holiday-selecter/)
+
 
 I was able to deploy the website here by
 
 - Navigate to my repository in which all the files are saved
 - Clicking on settings at the top \&gt; Scrolling down to the heading GitHub Pages
--  Underneath the heading there is a source and I chose master branch from the dropdown which allows you to host the website on GitHub Pages.
+-  Underneath the heading there is a source and I chose master branch from the dropdown which allows you to host the website on GitHub Pages
+-  [Git HUB repository](https://github.com/mickh14/holiday-selecter)
 
 ## **Credits**
 
 ### Content:
 
-- Hotel details are retrieved from RapidAPI - [https://rapidapi.com/](https://rapidapi.com/)
-- The Map and places were retrieved for Google Map and Places API [https://developers.google.com/maps/documentation](https://developers.google.com/maps/documentation)
+- Hotel details are retrieved from [RapidAPI](https://rapidapi.com/)
+- The Map and places were retrieved for Google Map and Places [API](https://developers.google.com/maps/documentation)
 
 ### Media Content
 
-The photos used on this site were obtained from [https://www.pexels.com/](https://www.pexels.com/)
+The photos used on this site were obtained from [Pexels.com](https://www.pexels.com/)
 
 ### **Acknowledgements**
 
-- [com](https://www.w3schools.com/howto/howto_css_modal_images.asp) - I used example here to troubleshoot a lot of issues encountered.
+- [W3Schools](https://www.w3schools.com/howto/howto_css_modal_images.asp) - I used example here to troubleshoot a lot of issues encountered.
 - YouTube – I used many tutorial videos to troubleshoot issues
 - My Code Institute mentor - My mentor Guido Cecilio Garcia Bernal for his help and tips
