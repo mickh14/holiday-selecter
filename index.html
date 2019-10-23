@@ -49,7 +49,7 @@
         </nav>
 
     </header>
-    </header>
+    
     <!--*******SEARCH*******-->
     <section class="container-fluid" id="search">
         <div class="search-container">
@@ -83,7 +83,7 @@
                             <div class="">
                                 <li class="">
 
-                                    <a href="#packages" class="hvr-sweep-to-bottom btn--cta btn--color" onclick="fethHotelDetails()"><i aria-hidden="true"></i><span>Find Perfect Holiday!</span></a>
+                                    <a href="#packages" id="packSearch" class="hvr-sweep-to-bottom btn--cta btn--color" onclick="fethHotelDetails()"><i aria-hidden="true"></i><span>Find Perfect Holiday!</span></a>
 
                                 </li>
                             </div>
@@ -102,9 +102,9 @@
                                 </li>
     *******PACKAGES*******-->
     <section class="container-fluid" id="packages">
-        <div>
+        <div class="all-packs" id="pack-area">
             <div class="row package-one-bg">
-                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageOne"><img class="hotel-pic" src="assets/images/hotel.jpg" alt="hotel" /></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageOne"></div>
                 <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameOne"></div>
                 <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
                     <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
@@ -112,7 +112,7 @@
             </div>
 
             <div class="row package-two-bg">
-                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageTwo"><img class="hotel-pic" src="assets/images/hotel.jpg" alt="hotel" /></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageTwo"></div>
                 <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameTwo"></div>
                 <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
                     <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="row package-one-bg">
-                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageThree"><img class="hotel-pic" src="assets/images/hotel.jpg" alt="hotel" /></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageThree"></div>
                 <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameThree"></div>
                 <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
                     <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
@@ -128,7 +128,7 @@
             </div>
 
             <div class="row package-two-bg">
-                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageFour"><img class="hotel-pic" src="assets/images/hotel.jpg" alt="hotel" /></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageFour"></div>
                 <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameFour"></div>
                 <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
                     <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
@@ -136,7 +136,7 @@
             </div>
 
             <div class="row package-one-bg">
-                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageFive"><img class="hotel-pic" src="assets/images/hotel.jpg" alt="hotel" /></div>
+                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageFive"></div>
                 <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameFive"></div>
                 <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
                     <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>

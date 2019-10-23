@@ -66,7 +66,7 @@ function hotelInformationHTML(hotelDetails) {
                 </li>
                 <li >
                     <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
-                <a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[0].hotel_name}</a>
+                <a href="${hotelDetails.result[0].url}" target="_blank">${hotelDetails.result[0].hotel_name}</a>
             </span>
                 </li>
             </ul>
@@ -84,7 +84,7 @@ function hoteltwoInformationHTML(hotelDetails) {
                 </li>
                 <li >
                     <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
-                <a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[1].hotel_name}</a>
+                <a href="${hotelDetails.result[1].url}" target="_blank">${hotelDetails.result[1].hotel_name}</a>
             </span>
                 </li>
             </ul>
@@ -102,7 +102,7 @@ function hoteThreelInformationHTML(hotelDetails) {
                 </li>
                 <li >
                     <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
-                <a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[6].hotel_name}</a>
+                <a href="${hotelDetails.result[2].url}" target="_blank">${hotelDetails.result[6].hotel_name}</a>
             </span>
                 </li>
             </ul>
@@ -120,7 +120,7 @@ function hotelfourlInformationHTML(hotelDetails) {
                 </li>
                 <li >
                     <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
-                <a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[3].hotel_name}</a>
+                <a href="${hotelDetails.result[3].url}" target="_blank">${hotelDetails.result[3].hotel_name}</a>
             </span>
                 </li>
             </ul>
@@ -138,19 +138,35 @@ function hotelfivelInformationHTML(hotelDetails) {
                 </li>
                 <li >
                     <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
-                <a href="${hotelDetails.url}" target="_blank">${hotelDetails.result[4].hotel_name}</a>
+                <a href="${hotelDetails.result[4].url}" target="_blank">${hotelDetails.result[4].hotel_name}</a>
             </span>
                 </li>
             </ul>
         `;
 }
 
+//show PIC
+/*
+function hotelImageHTML(hotelPic) {
+    return `
+        <div">
+                
+                    <img src="${hotelPic.data[1950932][0][4]}" width = "80" height = "80" alt="hotel Image"/>
+                
+            </div>
+        `;
+}*/
+
 function fethHotelDetails(dest) {
     var arrDate = $("#enterDate").val();
     var leaveDate = $("#leaveDate").val();
-    //hotelLngLat to be used as dest_ids
-    var hotelLngLat = dest;
-    console.log(hotelLngLat);
+    $("#pack-area").css("visibility", "visible");
+
+
+    if (!arrDate || !leaveDate) {
+        $("#hotelNameThree").html(`<p class="error-msg">Please return to search and do not leave any criteria blank</p>`);
+        return;
+    }
 
     //API connection to Hotel list API
     var settings = {
@@ -176,34 +192,36 @@ function fethHotelDetails(dest) {
         }
     };
 
+    $.ajax(hotelSettings).done(function(hotelresponse) {
+        //console.log(hotelresponse);
+        var hotelPic = hotelresponse.data[1950932][0][4];
+        console.log(hotelPic);
+
+        //$("#hotelImageOne").html(hotelImageHTML(hotelPic));
+    });
+
 
     $.when(
         $.ajax(settings).done(function(firstResponse) {
             //console.log(firstResponse.result[8].hotel_name);
             console.log(firstResponse);
-            var hotel_id = firstResponse.result[8].hotel_id;
-            console.log(hotel_id);
-
-        }).then(
-            $.ajax(hotelSettings).done(function(hotelresponse) {
-        console.log(hotelresponse);
-    })
-    ).then(
-        function(firstResponse) {
-            var hotelDetails = firstResponse;
-
+            //hotel_id = firstResponse.result[8].hotel_id;
             //console.log(hotel_id);
 
-
+        })).then(
+        function(firstResponse) {
+            var hotelDetails = firstResponse;
+            //console.log(hotel_id);
+            //hotel Details
             $("#hotelNameOne").html(hotelInformationHTML(hotelDetails));
             $("#hotelNameTwo").html(hoteltwoInformationHTML(hotelDetails));
             $("#hotelNameThree").html(hoteThreelInformationHTML(hotelDetails));
             $("#hotelNameFour").html(hotelfourlInformationHTML(hotelDetails));
             $("#hotelNameFive").html(hotelfivelInformationHTML(hotelDetails));
+
+
         }
-
-
-    ));
+    );
 
     function geoCodeAddress(hotAddress) {
         // return a Promise
@@ -214,7 +232,7 @@ function fethHotelDetails(dest) {
                     // resolve results upon a successful status
                     resolve(results);
                     var dest = results[0].geometry.location;
-                    //console.log(dest);
+                    console.log(dest);
                 }
                 else {
                     // reject status upon un-successful status
@@ -230,6 +248,12 @@ function fethHotelDetails(dest) {
 
 
 /*-----------------Loop to display hotel details - how do I get 
+
+function (error_Response){
+           if  (error_Response.status == 500){
+               $("#hotelNameThree").html(`<p class="error-msg">Please review dates: ${error_Response.message}</p>`);
+           }
+        }
 
 then(
         function fetchHotels(response) {
@@ -249,15 +273,3 @@ then(
 
     );
     */
-    
-    
-  /*  when for hotel list response
-    $.when(
-        $.ajax(settings).done(function(firstResponse) {
-            console.log(firstResponse.result[8].hotel_name);
-            console.log(firstResponse);
-            //var hotel_id = firstResponse.result[8].hotel_id;
-            //console.log(hotel_id);
-
-        })
-    )*/

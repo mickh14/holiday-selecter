@@ -3,9 +3,8 @@
 
 #map {min-height: 360px;} 
 
-.no-date{
-    visibility: hidden;
-}
+
+
 
 /*-----------------Backgrounds*/
 .search-container {
@@ -86,7 +85,7 @@
 
 
 
-/*-----------------header*/
+/*-----------------navbar*/
 
 
 .menuitem {
@@ -107,6 +106,10 @@
 }
   
 /*-----------------search*/
+.no-date{
+    visibility: hidden;
+}
+
 
 .criteria-shape{
     margin: 10;
@@ -154,6 +157,10 @@
 }
 
 /*-----------------Packages*/
+
+.all-packs{
+    visibility: hidden;
+}
 .btn--cta {
     font-weight: bold;
     border-radius: 23px;
@@ -211,6 +218,10 @@
     height: 90%;
 }
 
+.error-msg{
+    font-size: 30px;
+    background-color: white;
+}
 
 /*-----------------attractions*/
 
