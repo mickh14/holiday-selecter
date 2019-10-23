@@ -110,6 +110,7 @@ All html and css are checked through [https://validator.w3.org](https://validato
 ## **Deployment**
 
 My website is currently deployed on Github Pages - [https://mickh14.github.io/holiday-selecter/](https://mickh14.github.io/holiday-selecter/)
+Git HUB repository [https://github.com/mickh14/holiday-selecter](https://github.com/mickh14/holiday-selecter)
 
 I was able to deploy the website here by
 
