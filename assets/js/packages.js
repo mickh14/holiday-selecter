@@ -23,14 +23,8 @@ $('#whereTo').on('click', function() {
 
 
 
-/*-----------------Date Picker------------------------------
-$(document).ready(function() {
-    $('.dates #leaveDate').datepicker({
-        'format': 'yyyy-mm-dd',
-        'autoclose': false
-    });
-});
-*/
+/*-----------------Date Picker------------------------------*/
+
 
 $(document).ready(function() {
     var minDate = new Date();
@@ -54,7 +48,7 @@ $(document).ready(function() {
 
 
 
-/*-----------------fetch hotel details from API------------------------------*/
+/*-----------------show hotel details from API------------------------------*/
 function hotelInformationHTML(hotelDetails) {
     return `
         <ul style="list-style: none;">
@@ -145,8 +139,12 @@ function hotelfivelInformationHTML(hotelDetails) {
         `;
 }
 
-//show PIC
-/*
+/*-----------------/show hotel details from API------------------------------*/
+
+/*-----------------Show Hotel Pic------------------------------
+
+
+
 function hotelImageHTML(hotelPic) {
     return `
         <div">
@@ -157,22 +155,89 @@ function hotelImageHTML(hotelPic) {
         `;
 }*/
 
-function fethHotelDetails(dest) {
+/*-----------------connectict to Booking Automcomplete------------------------------
+
+function fetchSuggestedLocation(location){
+    var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://apidojo-booking-v1.p.rapidapi.com/locations/auto-complete?languagecode=en-us&text="+location,
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
+		"x-rapidapi-key": "ecace6c59emsh92e31436031b0c6p1b84d8jsnca11e04da872"
+	    }
+    };
+
+    $.ajax(settings).done(function (response) {
+    	console.log("string");
+    	console.log(response);
+    });
+}
+To Delete*/
+var dest;
+
+function fethHotelDetails() {
     var arrDate = $("#enterDate").val();
     var leaveDate = $("#leaveDate").val();
+    var hotAddress = $("#search_term").val();
+    var hotel_id;
     $("#pack-area").css("visibility", "visible");
 
+    //var newLatLng = dest;
+    //var newLng = hotAddress.lng;
+    //console.log(newLatLng);
+    //console.log(newLng);
 
-    if (!arrDate || !leaveDate) {
-        $("#hotelNameThree").html(`<p class="error-msg">Please return to search and do not leave any criteria blank</p>`);
+
+    if (!arrDate || !leaveDate || !hotAddress) {
+        $("#hotelNameThree").html(`<p class="error-msg">Please return to search. Do not leave any criteria blank</p>`);
         return;
     }
 
+    // call geocoder passing in address from user input #search_term
+    geoCodeAddress(hotAddress)
+
+        .then(function(results) {
+            // when geocoder is done log the results in console
+            return fetchHotelList(arrDate, leaveDate, dest);
+        })
+        // .catch only runs when promise is rejected
+        .catch(function(status) {
+            alert(status);
+        });
+
+}
+
+function geoCodeAddress(hotAddress) {
+    // return a Promise
+    var geocoder = new google.maps.Geocoder();
+    return new Promise(function(resolve, reject) {
+        geocoder.geocode({ 'address': hotAddress }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                // resolve results upon a successful status
+                resolve(results);
+                dest = results[0].geometry.location;
+            }
+            else {
+                // reject status upon un-successful status
+                reject(status);
+            }
+        });
+    });
+}
+
+function fetchHotelList(arrDate, leaveDate, dest) {
+    var newLat = dest.lat();
+    var newLng = dest.lng();
+    console.log(newLat);
+    console.log(newLng);
     //API connection to Hotel list API
+    //Postman success - https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=2019-11-13&departure_date=2019-11-14&longitude=106.686102&latitude=10.838039&search_type=latlong
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=" + arrDate + "&departure_date=" + leaveDate + "&dest_ids=-3712125",
+        "url": "https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=" + arrDate + "&departure_date=" + leaveDate + "&longitude=" + newLng + "&latitude=" + newLat + "&search_type=latlong",
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
@@ -180,6 +245,45 @@ function fethHotelDetails(dest) {
         }
     };
 
+
+    $.when(
+        $.ajax(settings).done(function(firstResponse) {
+            //console.log(firstResponse.result[8].hotel_name);
+            //console.log(firstResponse);
+            //hotel_id = firstResponse.result[8].hotel_id;
+            //console.log(hotel_id);
+
+        })).then(
+        function(firstResponse) {
+            var hotelDetails = firstResponse;
+            //console.log(hotelDetails.result[8].hotel_id);
+            //hotel Details
+            $("#hotelNameOne").html(hotelInformationHTML(hotelDetails));
+            $("#hotelNameTwo").html(hoteltwoInformationHTML(hotelDetails));
+            $("#hotelNameThree").html(hoteThreelInformationHTML(hotelDetails));
+            $("#hotelNameFour").html(hotelfourlInformationHTML(hotelDetails));
+            $("#hotelNameFive").html(hotelfivelInformationHTML(hotelDetails));
+            if (hotelDetails.result.length > 0) {
+                for (var i = 1; i < 6; i++) {
+                    var hotel = hotelDetails.result[i];
+                    //var roomInfo = response.copyright[8];
+                    console.log(hotel);
+                    //console.log(roomInfo);
+                    fetchHotelPic(hotel);
+                }
+            }
+            else {
+                console.log(response);
+            }
+
+        }
+    );
+}
+
+
+function fetchHotelPic(hotel) {
+    var hotelIdOne = hotel.hotel_id;
+    console.log(hotelIdOne);
     //API connection to Hotel photos API    
     var hotelSettings = {
         "async": true,
@@ -199,50 +303,7 @@ function fethHotelDetails(dest) {
 
         //$("#hotelImageOne").html(hotelImageHTML(hotelPic));
     });
-
-
-    $.when(
-        $.ajax(settings).done(function(firstResponse) {
-            //console.log(firstResponse.result[8].hotel_name);
-            console.log(firstResponse);
-            //hotel_id = firstResponse.result[8].hotel_id;
-            //console.log(hotel_id);
-
-        })).then(
-        function(firstResponse) {
-            var hotelDetails = firstResponse;
-            //console.log(hotel_id);
-            //hotel Details
-            $("#hotelNameOne").html(hotelInformationHTML(hotelDetails));
-            $("#hotelNameTwo").html(hoteltwoInformationHTML(hotelDetails));
-            $("#hotelNameThree").html(hoteThreelInformationHTML(hotelDetails));
-            $("#hotelNameFour").html(hotelfourlInformationHTML(hotelDetails));
-            $("#hotelNameFive").html(hotelfivelInformationHTML(hotelDetails));
-
-
-        }
-    );
-
-    function geoCodeAddress(hotAddress) {
-        // return a Promise
-        var geocoder = new google.maps.Geocoder();
-        return new Promise(function(resolve, reject) {
-            geocoder.geocode({ 'address': hotAddress }, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    // resolve results upon a successful status
-                    resolve(results);
-                    var dest = results[0].geometry.location;
-                    console.log(dest);
-                }
-                else {
-                    // reject status upon un-successful status
-                    reject(status);
-                }
-            });
-        });
-    }
 }
-
 
 
 
@@ -273,3 +334,47 @@ then(
 
     );
     */
+
+
+/*
+geoCodeAddress(hotAddress);
+    
+    
+    //API connection to Hotel list API
+    //Postman success - https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=2019-11-13&departure_date=2019-11-14&longitude=53.4304087&latitude=-6.1498546&search_type=latlong
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=" + arrDate + "&departure_date=" + leaveDate + "&longitude=106.686102&latitude=10.838039&search_type=latlong",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
+            "x-rapidapi-key": "ecace6c59emsh92e31436031b0c6p1b84d8jsnca11e04da872"
+        }
+    };
+
+
+    $.when(
+        $.ajax(settings).done(function(firstResponse) {
+            //console.log(firstResponse.result[8].hotel_name);
+            //console.log(firstResponse);
+            //hotel_id = firstResponse.result[8].hotel_id;
+            //console.log(hotel_id);
+
+        })).then(
+        function(firstResponse) {
+            var hotelDetails = firstResponse;
+            console.log(hotelDetails);
+            //hotel Details
+            $("#hotelNameOne").html(hotelInformationHTML(hotelDetails));
+            $("#hotelNameTwo").html(hoteltwoInformationHTML(hotelDetails));
+            $("#hotelNameThree").html(hoteThreelInformationHTML(hotelDetails));
+            $("#hotelNameFour").html(hotelfourlInformationHTML(hotelDetails));
+            $("#hotelNameFive").html(hotelfivelInformationHTML(hotelDetails));
+
+
+        }
+    );
+
+    function geoCodeAddress
+*/

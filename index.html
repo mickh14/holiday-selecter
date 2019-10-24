@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <header class="container-fluid">
+    <header>
         <!--*******Navigation*******-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark-taylor stay-top">
             <a class="menuitem" href="#search">SEARCH</a>
@@ -49,121 +49,105 @@
         </nav>
 
     </header>
-    
+
     <!--*******SEARCH*******-->
-    <section class="container-fluid" id="search">
-        <div class="search-container">
-            <div class="criteria-shape">
-                <form>
-                    <div class="row form-inline inputs">
-                        <ul class="search-style">
-                            <div>
-                                <li>
-                                    <input type="text" name="term" id="search_term" class="controls" placeholder="Where to....." />
-                                </li>
-                            </div>
-
-                            <div class="dates ">
-                                <li>
-                                    <input type="text" id="enterDate" placeholder="Arrive Date">
-                                </li>
-                            </div>
-
-                            <div class="dates">
-                                <li>
-                                    <input type="text" id="leaveDate" placeholder="Departure Date">
-                                </li>
-                            </div>
-
-                            <div class="no-date">
-                                <li>
-                                    <input type="text" id="depDate" placeholder="Departure Date" required>
-                                </li>
-                            </div>
-                            <div class="">
-                                <li class="">
-
-                                    <a href="#packages" id="packSearch" class="hvr-sweep-to-bottom btn--cta btn--color" onclick="fethHotelDetails()"><i aria-hidden="true"></i><span>Find Perfect Holiday!</span></a>
-
-                                </li>
-                            </div>
-                        </ul>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </section>
-    <!--
+    <div class="container-fluid">
+        <section id="search">
+            <div class="row no-pad search-container">
+                <div class="criteria-shape">
+                    <form>
+                        <div class="form-inline inputs">
+                            <ul class="search-style">
+                                <div>
                                     <li>
-                                    <a href="#packages">
-                                        <button id="searchbtn" type="submit" class="btn--cta btn--color" onclick="fethHotelDetails()">Find Perfect Holiday!</button>
-                                    </a>
-                                </li>
-    *******PACKAGES*******-->
-    <section class="container-fluid" id="packages">
-        <div class="all-packs" id="pack-area">
-            <div class="row package-one-bg">
-                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageOne"></div>
-                <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameOne"></div>
-                <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
-                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
-                </div>
-            </div>
+                                        <input type="text" name="term" id="search_term" class="controls" placeholder="Where to....." />
+                                    </li>
+                                </div>
 
-            <div class="row package-two-bg">
-                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageTwo"></div>
-                <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameTwo"></div>
-                <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
-                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
-                </div>
-            </div>
+                                <div class="dates ">
+                                    <li>
+                                        <input type="text" id="enterDate" placeholder="Arrive Date">
+                                    </li>
+                                </div>
 
-            <div class="row package-one-bg">
-                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageThree"></div>
-                <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameThree"></div>
-                <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
-                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
-                </div>
-            </div>
+                                <div class="dates">
+                                    <li>
+                                        <input type="text" id="leaveDate" placeholder="Departure Date">
+                                    </li>
+                                </div>
 
-            <div class="row package-two-bg">
-                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageFour"></div>
-                <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameFour"></div>
-                <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
-                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
-                </div>
-            </div>
+                                <div class="no-date">
+                                    <li>
+                                        <input type="text" id="depDate" placeholder="Departure Date" required>
+                                    </li>
+                                </div>
+                                <div class="">
+                                    <li class="">
 
-            <div class="row package-one-bg">
-                <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageFive"></div>
-                <div class="col-12 col-md-12 col-sm-12 col-lg-7 col-xs-12" id="hotelNameFive"></div>
-                <div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
-                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
-                </div>
-            </div>
-        </div>
+                                        <a href="#packages" id="packSearch" class="hvr-sweep-to-bottom btn--cta btn--color" onclick="fethHotelDetails()"><i aria-hidden="true"></i><span>Find Perfect Holiday!</span></a>
 
-
-
-    </section>
-    <!--*******Attractions*******-->
-    <section class="container-fluid" id="attractions">
-
-        <div class="row">
-            <div id="map" class="col-xs-12 col-sm-12 col-md-9 bg-color-map section-column"></div>
-
-            <div class="col-xs-12 col-sm-12 col-md-3 search-background">
-
-                <ul class="search-style">
-                    <li>
-                        <div class="form-group att-element-style">
-                            <input type="text" name="term" id="whereTo" class="controls" placeholder="Where to....." />
+                                    </li>
+                                </div>
+                            </ul>
                         </div>
-                    </li>
-                    <li>
-                        <div class="form-group att-element-style">
-                            <select id="searchTerm" value="cafe" class="form-control">
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!--*******PACKAGES*******-->
+
+    <div class="container-fluid">
+        <section id="packages">
+            <div class="row no-pad all-pack" id="pack-area">
+                <div class="row no-pad align-items-start package-one-bg">
+                    <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageOne"></div>
+                    <div class="col-12 col-md-12 col-sm-12 col-lg-9 col-xs-12" id="hotelNameOne"></div>
+                </div>
+
+                <div class="row no-pad align-items-start package-two-bg">
+                    <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageTwo"></div>
+                    <div class="col-12 col-md-12 col-sm-12 col-lg-9 col-xs-12" id="hotelNameTwo"></div>
+                </div>
+
+                <div class="row no-pad align-items-start package-one-bg">
+                    <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageThree"></div>
+                    <div class="col-12 col-md-12 col-sm-12 col-lg-9 col-xs-12" id="hotelNameThree"></div>
+                </div>
+
+                <div class="row no-pad align-items-start package-two-bg">
+                    <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageFour"></div>
+                    <div class="col-12 col-md-12 col-sm-12 col-lg-9 col-xs-12" id="hotelNameFour"></div>
+                </div>
+
+                <div class="row no-pad align-items-start package-one-bg">
+                    <div class="col-12 col-md-12 col-sm-12 col-lg-3 col-xs-12" id="hotelImageFive"></div>
+                    <div class="col-12 col-md-12 col-sm-12 col-lg-9 col-xs-12" id="hotelNameFive"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!--*******Attractions*******-->
+    <div class="container-fluid">
+        <section id="attractions">
+            <div class="row no-pad">
+                <div id="map" class="col-12 col-md-12 col-sm-12 col-lg-12 col-xs-12 section-column"></div>
+
+                <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xs-12 search-background">
+
+                    <ul class="search-style">
+                        <li>
+                            <div class="form-group att-element-style">
+                                <input type="text" name="term" id="whereTo" class="controls" placeholder="Where to....." />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group att-element-style">
+                                <select id="searchTerm" value="cafe" class="form-control">
                             <option value="select">---Select Attraction---</option>
                             <option value="bar">bar</option>
                             <option value="restaurant">Restaurant</option>
@@ -176,32 +160,29 @@
                             <option value="atm">ATM</option>
                             <option value="casino">Casino</option>
                         </select>
-                            <button type="button" id="find" class="btn btn--cta btn--red">Go!</button>
-                        </div>
-                    </li>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group att-element-style">
+                                <button type="button" id="find" class="btn btn--cta btn--red">Go!</button>
+                            </div>
+                        </li>
 
 
-                </ul>
-
-
-
-
-
-
-
+                    </ul>
+                </div>
 
             </div>
-
-        </div>
-
-    </section>
+        </section>
+    </div>
 
 
 
 
     <!--*******FOOTER*******-->
     <footer class="container-fluid">
-        <div id="footerdetails" class="row">
+        <div id="footerdetails" class="row no-pad">
             <div class="col-sm-8">
                 <h5 class="uppercase general-sub">The Holiday Selecter</h5>
                 <p class="inline-block">
@@ -254,7 +235,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Congratulations on selecting your next holiday.</h5>
+                    <h5 class="modal-title">Congratulations on selecting your next holiday. Please enter your details below and a member of the holiday selector team will be in contact shortly</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -315,26 +296,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="col-md-12 mb-3">
-                                <label for="venueValidation">Venue</label>
-                                <input type="text" class="form-control" id="venueValidation" placeholder="Venue" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid Venue.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                <label class="form-check-label" for="invalidCheck">
-                                    Please ticket to confirm you are over 18
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
-                            </div>
-                        </div>
+
                         <button type="submit" class="btn btn-lg btn--cta btn--red">Book Now!</button>
                     </form>
 
@@ -382,5 +344,7 @@
 </html>
 
 <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3e2rcmbHaheAH_Qgn22I8rnXoySvx2jE&libraries=places"></script>">
-
+possible buttong for package -<div class="col-12 col-md-12 col-sm-12 col-lg-2 col-xs-12" id="hotelButton">
+                    <button type="button" class="btn btn-lg btn--cta btn--red" data-toggle="modal" data-target="#bookingModal">Book Now!</button>
+                </div>
 */*s-->
