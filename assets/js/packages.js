@@ -141,7 +141,7 @@ function hotelfivelInformationHTML(hotelDetails) {
 
 /*-----------------/show hotel details from API------------------------------*/
 
-/*-----------------Show Hotel Pic------------------------------
+/*-----------------Show Hotel Pic------------------------------*/
 
 
 
@@ -149,32 +149,13 @@ function hotelImageHTML(hotelPic) {
     return `
         <div">
                 
-                    <img src="${hotelPic.data[1950932][0][4]}" width = "80" height = "80" alt="hotel Image"/>
+                    <img src="${hotelPic}" width = "80" height = "80" alt="hotel Image"/>
                 
             </div>
         `;
-}*/
-
-/*-----------------connectict to Booking Automcomplete------------------------------
-
-function fetchSuggestedLocation(location){
-    var settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://apidojo-booking-v1.p.rapidapi.com/locations/auto-complete?languagecode=en-us&text="+location,
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
-		"x-rapidapi-key": "ecace6c59emsh92e31436031b0c6p1b84d8jsnca11e04da872"
-	    }
-    };
-
-    $.ajax(settings).done(function (response) {
-    	console.log("string");
-    	console.log(response);
-    });
 }
-To Delete*/
+
+
 var dest;
 
 function fethHotelDetails() {
@@ -284,7 +265,8 @@ function fetchHotelList(arrDate, leaveDate, dest) {
 
 function fetchHotelPic(hotel) {
     var hotelIds = hotel;
-    console.log(hotelIds);
+    //console.log(hotelIds);
+    
     //API connection to Hotel photos API    
     var hotelSettings = {
         "async": true,
@@ -299,10 +281,10 @@ function fetchHotelPic(hotel) {
 
     $.ajax(hotelSettings).done(function(hotelresponse) {
         console.log(hotelresponse);
-        //var hotelPic = hotelresponse.data[1950932][0][4];
-        //console.log(hotelPic);
+        var hotelPic = hotelresponse.data[hotelIds][0][4];
+        console.log(hotelPic);
 
-        //$("#hotelImageOne").html(hotelImageHTML(hotelPic));
+        $("#hotelImageOne").html(hotelImageHTML(hotelPic));
     });
 }
 
