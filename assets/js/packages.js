@@ -230,8 +230,9 @@ function geoCodeAddress(hotAddress) {
 function fetchHotelList(arrDate, leaveDate, dest) {
     var newLat = dest.lat();
     var newLng = dest.lng();
-    console.log(newLat);
-    console.log(newLng);
+    //console.log(newLat);
+    //console.log(newLng);
+    
     //API connection to Hotel list API
     //Postman success - https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=2019-11-13&departure_date=2019-11-14&longitude=106.686102&latitude=10.838039&search_type=latlong
     var settings = {
@@ -265,9 +266,9 @@ function fetchHotelList(arrDate, leaveDate, dest) {
             $("#hotelNameFive").html(hotelfivelInformationHTML(hotelDetails));
             if (hotelDetails.result.length > 0) {
                 for (var i = 1; i < 6; i++) {
-                    var hotel = hotelDetails.result[i];
+                    var hotel = hotelDetails.result[i].hotel_id;
                     //var roomInfo = response.copyright[8];
-                    console.log(hotel);
+                    //console.log(hotel);
                     //console.log(roomInfo);
                     fetchHotelPic(hotel);
                 }
@@ -282,13 +283,13 @@ function fetchHotelList(arrDate, leaveDate, dest) {
 
 
 function fetchHotelPic(hotel) {
-    var hotelIdOne = hotel.hotel_id;
-    console.log(hotelIdOne);
+    var hotelIds = hotel;
+    console.log(hotelIds);
     //API connection to Hotel photos API    
     var hotelSettings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://apidojo-booking-v1.p.rapidapi.com/properties/get-hotel-photos?languagecode=en-us&hotel_ids=1950932",
+        "url": "https://apidojo-booking-v1.p.rapidapi.com/properties/get-hotel-photos?hotel_ids=" + hotelIds + "&languagecode=en-us",
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
@@ -297,9 +298,9 @@ function fetchHotelPic(hotel) {
     };
 
     $.ajax(hotelSettings).done(function(hotelresponse) {
-        //console.log(hotelresponse);
-        var hotelPic = hotelresponse.data[1950932][0][4];
-        console.log(hotelPic);
+        console.log(hotelresponse);
+        //var hotelPic = hotelresponse.data[1950932][0][4];
+        //console.log(hotelPic);
 
         //$("#hotelImageOne").html(hotelImageHTML(hotelPic));
     });
