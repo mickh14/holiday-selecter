@@ -27,6 +27,7 @@ $('#whereTo').on('click', function() {
 
 
 $(document).ready(function() {
+   $(document).ready(function() {
     var minDate = new Date();
     $("#enterDate").datepicker({
         format: 'yyyy-mm-dd',
@@ -45,7 +46,31 @@ $(document).ready(function() {
     });
 });
 
+    
+});
 
+/*-----------------Orig Date Picker------------------------------
+
+
+$(document).ready(function() {
+    var minDate = new Date();
+    $("#enterDate").datepicker({
+        format: 'yyyy-mm-dd',
+        minDate: minDate,
+        onClose: function(selectedDate) {
+            $('#leaveDate').datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+    $("#leaveDate").datepicker({
+        format: 'yyyy-mm-dd',
+        minDate: minDate,
+        onClose: function(selectedDate) {
+            $('#enterDate').datepicker("option", "minDate", selectedDate);
+        }
+    });
+});
+*/
 
 
 /*-----------------show hotel details from API------------------------------*/
@@ -60,7 +85,7 @@ function hotelInformationHTML(hotelDetails) {
                 </li>
                 <li >
                     <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
-                <a href="${hotelDetails.result[0].url}" target="_blank">${hotelDetails.result[0].hotel_name}</a>
+                <a href="${hotelDetails.result[0].url}" target="_blank">Book Now!</a>
             </span>
                 </li>
             </ul>
@@ -78,7 +103,7 @@ function hoteltwoInformationHTML(hotelDetails) {
                 </li>
                 <li >
                     <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
-                <a href="${hotelDetails.result[1].url}" target="_blank">${hotelDetails.result[1].hotel_name}</a>
+                <a href="${hotelDetails.result[1].url}" target="_blank">Book Now!</a>
             </span>
                 </li>
             </ul>
@@ -96,7 +121,7 @@ function hoteThreelInformationHTML(hotelDetails) {
                 </li>
                 <li >
                     <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
-                <a href="${hotelDetails.result[2].url}" target="_blank">${hotelDetails.result[6].hotel_name}</a>
+                <a href="${hotelDetails.result[2].url}" target="_blank">Book Now!</a>
             </span>
                 </li>
             </ul>
@@ -114,7 +139,7 @@ function hotelfourlInformationHTML(hotelDetails) {
                 </li>
                 <li >
                     <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
-                <a href="${hotelDetails.result[3].url}" target="_blank">${hotelDetails.result[3].hotel_name}</a>
+                <a href="${hotelDetails.result[3].url}" target="_blank">Book Now!</a>
             </span>
                 </li>
             </ul>
@@ -132,7 +157,7 @@ function hotelfivelInformationHTML(hotelDetails) {
                 </li>
                 <li >
                     <span class="hotel-detail-icon fas fa-link" aria-hidden="true">
-                <a href="${hotelDetails.result[4].url}" target="_blank">${hotelDetails.result[4].hotel_name}</a>
+                <a href="${hotelDetails.result[4].url}" target="_blank">Book Now!</a>
             </span>
                 </li>
             </ul>
@@ -149,7 +174,7 @@ function hotelImageHTML(hotelPic) {
     return `
         <div">
                 
-                    <img src="${hotelPic}" width = "80" height = "80" alt="hotel Image"/>
+                    <img src="${hotelPic}" width = "150" height = "100" alt="hotel Image"/>
                 
             </div>
         `;
@@ -213,7 +238,7 @@ function fetchHotelList(arrDate, leaveDate, dest) {
     var newLng = dest.lng();
     //console.log(newLat);
     //console.log(newLng);
-    
+
     //API connection to Hotel list API
     //Postman success - https://apidojo-booking-v1.p.rapidapi.com/properties/list?arrival_date=2019-11-13&departure_date=2019-11-14&longitude=106.686102&latitude=10.838039&search_type=latlong
     var settings = {
@@ -245,17 +270,21 @@ function fetchHotelList(arrDate, leaveDate, dest) {
             $("#hotelNameThree").html(hoteThreelInformationHTML(hotelDetails));
             $("#hotelNameFour").html(hotelfourlInformationHTML(hotelDetails));
             $("#hotelNameFive").html(hotelfivelInformationHTML(hotelDetails));
+            
             if (hotelDetails.result.length > 0) {
                 for (var i = 1; i < 6; i++) {
                     var hotel = hotelDetails.result[i].hotel_id;
+                    var picOne = hotelDetails.result[1].hotel_id;
+                    var picTwo = hotelDetails.result[2].hotel_id;
                     //var roomInfo = response.copyright[8];
-                    //console.log(hotel);
-                    //console.log(roomInfo);
-                    fetchHotelPic(hotel);
+                    //console.log(picOne);
+                    //console.log(picTwo);
+                    
+                    fetchHotelPic(hotel, picOne, picTwo);
                 }
             }
             else {
-                console.log(response);
+                //console.log(response);
             }
 
         }
@@ -263,10 +292,11 @@ function fetchHotelList(arrDate, leaveDate, dest) {
 }
 
 
-function fetchHotelPic(hotel) {
+function fetchHotelPic(hotel, picOne, picTwo) {
     var hotelIds = hotel;
-    //console.log(hotelIds);
-    
+    var idOne = picOne;
+    console.log(idOne);
+
     //API connection to Hotel photos API    
     var hotelSettings = {
         "async": true,
@@ -281,8 +311,10 @@ function fetchHotelPic(hotel) {
 
     $.ajax(hotelSettings).done(function(hotelresponse) {
         console.log(hotelresponse);
-        var hotelPic = hotelresponse.data[hotelIds][0][4];
-        console.log(hotelPic);
+        var picPrefix = hotelresponse.url_prefix;
+        var picLoc = hotelresponse.data[idOne][1][4];
+        var hotelPic = picPrefix.concat(picLoc);
+        //console.log(hotelPic);
 
         $("#hotelImageOne").html(hotelImageHTML(hotelPic));
     });
